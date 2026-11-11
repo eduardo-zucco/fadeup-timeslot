@@ -1,0 +1,35 @@
+
+> fadeup-timeslot@1.0.0 test
+> node --test tests/*.test.mjs
+
+request_failed WhatsApp inválido.
+request_failed Consentimento necessário.
+✔ reserva persiste no SQLite e não expõe dados sem chave (68.9431ms)
+✔ reserva concorrente aceita uma única ocupação (11.5188ms)
+✔ cancelamento libera horários e mantém histórico (8.6823ms)
+✔ reagendamento em conflito mantém reserva anterior (6.9944ms)
+✔ painel e configurações exigem operador (1.8093ms)
+✔ bloqueio impede reserva e pode ser removido pelo operador (5.751ms)
+✔ validação rejeita dados inválidos e origem externa (4.1955ms)
+✔ batch faz rollback completo quando a chave de ocupação conflita (3.727ms)
+✔ API rejeita mutação iniciada por outra origem (1.993ms)
+✔ chave administrativa protege o painel fora do Sites (4.2197ms)
+✔ serviço termina dentro do expediente (4.7101ms)
+✔ colisões consideram toda a duração (1.8676ms)
+✔ dias fechados e datas passadas não oferecem horários (1.9696ms)
+✔ horário de hoje considera fuso de São Paulo (0.5918ms)
+✔ intervalo também ocupa a agenda (0.9615ms)
+✔ datas inválidas e além do horizonte são rejeitadas (0.2919ms)
+✔ nome telefone e consentimento são obrigatórios (1.0625ms)
+✔ configuração rejeita duplicidade e duração inválida (0.8167ms)
+✔ servidor público descarta identidade falsa e aceita proxy HTTPS (469.0791ms)
+request_failed WhatsApp inválido.
+✔ artefato Worker serve a interface e a mesma API SQLite (257.6127ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 775.1124

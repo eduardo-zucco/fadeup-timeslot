@@ -1,0 +1,29 @@
+{
+  "capturedAt": "2026-11-11T20:13:23.136Z",
+  "sprints": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"data\":{\"startAt\":0,\"maxResults\":50,\"total\":4,\"isLast\":true,\"values\":[{\"id\":3,\"state\":\"closed\",\"name\":\"fadeUp - Semana 1 - Agendamento\",\"startDate\":\"2026-11-11T12:00:00.000Z\",\"endDate\":\"2026-11-18T12:00:00.000Z\",\"completeDate\":\"2026-11-11T20:11:46.847Z\",\"originBoardId\":1,\"goal\":\"Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.\"},{\"id\":2,\"state\":\"active\",\"name\":\"SCRUM Sprint 0\",\"startDate\":\"2026-11-11T18:35:12.888Z\",\"endDate\":\"2026-11-25T18:35:12.888Z\",\"originBoardId\":1},{\"id\":4,\"state\":\"active\",\"name\":\"fadeUp - Semana 2 - Operação e entrega\",\"startDate\":\"2026-11-11T20:11:45.175Z\",\"endDate\":\"2026-11-25T12:00:00.000Z\",\"originBoardId\":1,\"goal\":\"Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.\"},{\"id\":1,\"state\":\"future\",\"name\":\"SCRUM Sprint 1\",\"originBoardId\":1}]}}"
+        }
+      ],
+      "structuredContent": null,
+      "isError": false
+    }
+  },
+  "board": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"data\":{\"id\":1,\"name\":\"SCRUM board\",\"type\":\"simple\",\"filter\":{\"id\":\"10000\"},\"location\":{\"type\":\"project\",\"id\":\"10000\",\"key\":\"SCRUM\",\"name\":\"My Software Team\"},\"columnConfig\":{\"constraintType\":\"none\",\"columns\":[{\"name\":\"To Do\",\"statuses\":[{\"id\":\"10000\",\"name\":\"Tarefas pendentes\",\"category\":\"new\"}]},{\"name\":\"In Progress\",\"statuses\":[{\"id\":\"3\",\"name\":\"Em andamento\",\"category\":\"indeterminate\"}]},{\"name\":\"In Review\",\"statuses\":[{\"id\":\"10001\",\"name\":\"Em análise\",\"category\":\"indeterminate\"}]},{\"name\":\"Done\",\"statuses\":[{\"id\":\"10002\",\"name\":\"Concluído\",\"category\":\"done\"}]}]},\"estimation\":{\"type\":\"field\",\"field\":{\"fieldId\":\"customfield_10016\",\"displayName\":\"Story point estimate\"}},\"ranking\":{\"rankCustomFieldId\":10019}}}"
+        }
+      ],
+      "structuredContent": null,
+      "isError": false
+    }
+  }
+}
