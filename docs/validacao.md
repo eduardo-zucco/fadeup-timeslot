@@ -11,9 +11,11 @@ Data: 11/11/2026.
 
 ## Pendências externas
 
+A auditoria posterior identificou uma falha de concorrência entre cancelamento e reagendamento simultâneos. Os 20 testes existentes passam, mas não cobrem esse cenário. A aprovação integral do código depende da correção e de um teste de regressão. Consulte [auditoria de escopo](auditoria-escopo.md).
+
 - Publicação adiada pelo proprietário; retomar quando solicitado. Não houve deploy nem contratação de plano pago.
 - Confirmar acesso do professor ao Jira e ao repositório.
 - Obter revisão humana independente e validação do PO, caso exigidas na avaliação.
-- Os planos de duas semanas, capacidade e estimativas não comprovam cerimônias ou duas semanas históricas. O relatório registra essa distinção.
+- A janela de referência de 11 a 13/11/2026, capacidade e estimativas não comprovam cerimônias nem execução em datas futuras. O relatório registra essa distinção.
 
 Para atualizar o PDF após publicar, grave em `evidence/deploy.json` um objeto com `published: true`, `url`, `provider` e `notes` somente após verificar o endereço, e execute `scripts/report.py` com Python e ReportLab. Atualize também o snapshot do Jira usado no relatório.

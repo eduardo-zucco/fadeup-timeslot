@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-11-11T20:17:54.330Z",
+  "capturedAt": "2026-11-11T20:41:29.458Z",
   "items": [
     {
       "key": "SCRUM-5",
@@ -45,10 +45,10 @@
       "sprint": [
         {
           "id": 3,
-          "name": "fadeUp - Semana 1 - Agendamento",
+          "name": "fadeUp - Ciclo 1 - Agendamento",
           "state": "closed",
           "boardId": 1,
-          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
           "startDate": "2026-11-11T12:00:00.000Z",
           "endDate": "2026-11-18T12:00:00.000Z",
           "completeDate": "2026-11-11T20:11:46.847Z"
@@ -57,11 +57,11 @@
       "versions": [
         {
           "id": "10000",
-          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
           "name": "fadeUp v0.1 - API",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-18"
+          "releaseDate": "2026-11-11"
         }
       ],
       "parent": "SCRUM-5"
@@ -74,10 +74,10 @@
       "sprint": [
         {
           "id": 3,
-          "name": "fadeUp - Semana 1 - Agendamento",
+          "name": "fadeUp - Ciclo 1 - Agendamento",
           "state": "closed",
           "boardId": 1,
-          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
           "startDate": "2026-11-11T12:00:00.000Z",
           "endDate": "2026-11-18T12:00:00.000Z",
           "completeDate": "2026-11-11T20:11:46.847Z"
@@ -86,11 +86,11 @@
       "versions": [
         {
           "id": "10000",
-          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
           "name": "fadeUp v0.1 - API",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-18"
+          "releaseDate": "2026-11-11"
         }
       ],
       "parent": "SCRUM-5"
@@ -103,10 +103,10 @@
       "sprint": [
         {
           "id": 3,
-          "name": "fadeUp - Semana 1 - Agendamento",
+          "name": "fadeUp - Ciclo 1 - Agendamento",
           "state": "closed",
           "boardId": 1,
-          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
           "startDate": "2026-11-11T12:00:00.000Z",
           "endDate": "2026-11-18T12:00:00.000Z",
           "completeDate": "2026-11-11T20:11:46.847Z"
@@ -115,11 +115,11 @@
       "versions": [
         {
           "id": "10000",
-          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
           "name": "fadeUp v0.1 - API",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-18"
+          "releaseDate": "2026-11-11"
         }
       ],
       "parent": "SCRUM-5"
@@ -132,10 +132,10 @@
       "sprint": [
         {
           "id": 3,
-          "name": "fadeUp - Semana 1 - Agendamento",
+          "name": "fadeUp - Ciclo 1 - Agendamento",
           "state": "closed",
           "boardId": 1,
-          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
           "startDate": "2026-11-11T12:00:00.000Z",
           "endDate": "2026-11-18T12:00:00.000Z",
           "completeDate": "2026-11-11T20:11:46.847Z"
@@ -144,11 +144,11 @@
       "versions": [
         {
           "id": "10000",
-          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
           "name": "fadeUp v0.1 - API",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-18"
+          "releaseDate": "2026-11-11"
         }
       ],
       "parent": "SCRUM-5"
@@ -161,10 +161,10 @@
       "sprint": [
         {
           "id": 3,
-          "name": "fadeUp - Semana 1 - Agendamento",
+          "name": "fadeUp - Ciclo 1 - Agendamento",
           "state": "closed",
           "boardId": 1,
-          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
           "startDate": "2026-11-11T12:00:00.000Z",
           "endDate": "2026-11-18T12:00:00.000Z",
           "completeDate": "2026-11-11T20:11:46.847Z"
@@ -173,11 +173,11 @@
       "versions": [
         {
           "id": "10000",
-          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
           "name": "fadeUp v0.1 - API",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-18"
+          "releaseDate": "2026-11-11"
         }
       ],
       "parent": "SCRUM-5"
@@ -190,22 +190,22 @@
       "sprint": [
         {
           "id": 4,
-          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
           "state": "active",
           "boardId": 1,
-          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
           "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-25T12:00:00.000Z"
+          "endDate": "2026-11-13T21:00:00.000Z"
         }
       ],
       "versions": [
         {
           "id": "10001",
-          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
           "name": "fadeUp v1.0 - MVP",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-25"
+          "releaseDate": "2026-11-13"
         }
       ],
       "parent": "SCRUM-6"
@@ -218,22 +218,22 @@
       "sprint": [
         {
           "id": 4,
-          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
           "state": "active",
           "boardId": 1,
-          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
           "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-25T12:00:00.000Z"
+          "endDate": "2026-11-13T21:00:00.000Z"
         }
       ],
       "versions": [
         {
           "id": "10001",
-          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
           "name": "fadeUp v1.0 - MVP",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-25"
+          "releaseDate": "2026-11-13"
         }
       ],
       "parent": "SCRUM-6"
@@ -246,22 +246,22 @@
       "sprint": [
         {
           "id": 4,
-          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
           "state": "active",
           "boardId": 1,
-          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
           "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-25T12:00:00.000Z"
+          "endDate": "2026-11-13T21:00:00.000Z"
         }
       ],
       "versions": [
         {
           "id": "10001",
-          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
           "name": "fadeUp v1.0 - MVP",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-25"
+          "releaseDate": "2026-11-13"
         }
       ],
       "parent": "SCRUM-6"
@@ -274,22 +274,22 @@
       "sprint": [
         {
           "id": 4,
-          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
           "state": "active",
           "boardId": 1,
-          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
           "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-25T12:00:00.000Z"
+          "endDate": "2026-11-13T21:00:00.000Z"
         }
       ],
       "versions": [
         {
           "id": "10001",
-          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
           "name": "fadeUp v1.0 - MVP",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-25"
+          "releaseDate": "2026-11-13"
         }
       ],
       "parent": "SCRUM-7"
@@ -302,22 +302,22 @@
       "sprint": [
         {
           "id": 4,
-          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
           "state": "active",
           "boardId": 1,
-          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
           "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-25T12:00:00.000Z"
+          "endDate": "2026-11-13T21:00:00.000Z"
         }
       ],
       "versions": [
         {
           "id": "10001",
-          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
           "name": "fadeUp v1.0 - MVP",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-25"
+          "releaseDate": "2026-11-13"
         }
       ],
       "parent": "SCRUM-8"
@@ -330,22 +330,22 @@
       "sprint": [
         {
           "id": 4,
-          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
           "state": "active",
           "boardId": 1,
-          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
           "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-25T12:00:00.000Z"
+          "endDate": "2026-11-13T21:00:00.000Z"
         }
       ],
       "versions": [
         {
           "id": "10001",
-          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
           "name": "fadeUp v1.0 - MVP",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-25"
+          "releaseDate": "2026-11-13"
         }
       ],
       "parent": "SCRUM-8"
@@ -358,22 +358,22 @@
       "sprint": [
         {
           "id": 4,
-          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
           "state": "active",
           "boardId": 1,
-          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
           "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-25T12:00:00.000Z"
+          "endDate": "2026-11-13T21:00:00.000Z"
         }
       ],
       "versions": [
         {
           "id": "10001",
-          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
           "name": "fadeUp v1.0 - MVP",
           "archived": false,
           "released": false,
-          "releaseDate": "2026-11-25"
+          "releaseDate": "2026-11-13"
         }
       ],
       "parent": "SCRUM-8"
