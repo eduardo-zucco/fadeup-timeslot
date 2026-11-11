@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "title": "Catálogo de serviços",
+    "points": 2,
+    "parent": "SCRUM-5",
+    "sprint": 3,
+    "story": "Como cliente, quero consultar serviços, preços e duração para escolher meu atendimento.",
+    "accept": "O catálogo mostra nome, preço em reais e duração; a escolha identifica o serviço no fluxo.",
+    "priority": "Must",
+    "key": "SCRUM-9"
+  },
+  {
+    "id": 2,
+    "title": "Horários disponíveis",
+    "points": 3,
+    "parent": "SCRUM-5",
+    "sprint": 3,
+    "story": "Como cliente, quero ver horários realmente livres para evitar conflitos.",
+    "accept": "Considerar expediente, dias fechados, duração, intervalo, reservas existentes e fuso de São Paulo; impedir datas passadas.",
+    "priority": "Must",
+    "key": "SCRUM-10"
+  },
+  {
+    "id": 3,
+    "title": "Reservar atendimento",
+    "points": 5,
+    "parent": "SCRUM-5",
+    "sprint": 3,
+    "story": "Como cliente, quero reservar em até quatro etapas para não depender de mensagens.",
+    "accept": "Exigir nome, WhatsApp com DDD e consentimento; persistir reserva; duas reservas concorrentes não podem ocupar o mesmo intervalo; exibir confirmação.",
+    "priority": "Must",
+    "key": "SCRUM-11"
+  },
+  {
+    "id": 4,
+    "title": "Cancelar com chave de acesso",
+    "points": 3,
+    "parent": "SCRUM-5",
+    "sprint": 3,
+    "story": "Como cliente, quero cancelar meu horário para liberar a agenda.",
+    "accept": "Somente a chave da reserva ou operador pode cancelar; liberar todos os intervalos; preservar histórico.",
+    "priority": "Must",
+    "key": "SCRUM-12"
+  },
+  {
+    "id": 5,
+    "title": "Reagendar com segurança",
+    "points": 3,
+    "parent": "SCRUM-5",
+    "sprint": 3,
+    "story": "Como cliente, quero trocar meu horário sem perder a reserva caso o novo horário esteja ocupado.",
+    "accept": "Validar disponibilidade; atualizar atomicamente; conflito mantém o horário anterior.",
+    "priority": "Should",
+    "key": "SCRUM-13"
+  },
+  {
+    "id": 6,
+    "title": "Agenda do operador",
+    "points": 3,
+    "parent": "SCRUM-6",
+    "sprint": 4,
+    "story": "Como dono, quero consultar a agenda por dia ou semana para organizar atendimentos.",
+    "accept": "Acesso restrito; mostrar cliente, serviço, início e situação; mostrar total de atendimentos confirmados.",
+    "priority": "Must",
+    "key": "SCRUM-14"
+  },
+  {
+    "id": 7,
+    "title": "Configurar serviços e expediente",
+    "points": 3,
+    "parent": "SCRUM-6",
+    "sprint": 4,
+    "story": "Como dono, quero configurar serviços e horários para adaptar o sistema ao negócio.",
+    "accept": "Validar preço, duração, expediente, dias da semana e intervalo; salvar no banco e refletir novas consultas.",
+    "priority": "Should",
+    "key": "SCRUM-15"
+  },
+  {
+    "id": 8,
+    "title": "Bloquear horário e inserir encaixe",
+    "points": 2,
+    "parent": "SCRUM-6",
+    "sprint": 4,
+    "story": "Como dono, quero bloquear um intervalo e fazer reservas manuais para lidar com a rotina.",
+    "accept": "Bloqueio impede reservas; encaixe respeita conflitos; operador pode cancelar o bloqueio.",
+    "priority": "Should",
+    "key": "SCRUM-16"
+  },
+  {
+    "id": 9,
+    "title": "Confirmação e histórico",
+    "points": 2,
+    "parent": "SCRUM-7",
+    "sprint": 4,
+    "story": "Como cliente, quero consultar a confirmação e minhas reservas para lembrar meu atendimento.",
+    "accept": "Exibir serviço, data, horário e chave de gerenciamento; histórico deste navegador; nenhum envio WhatsApp é anunciado sem integração.",
+    "priority": "Must",
+    "key": "SCRUM-17"
+  },
+  {
+    "id": 10,
+    "title": "Qualidade e integração contínua",
+    "points": 3,
+    "parent": "SCRUM-8",
+    "sprint": 4,
+    "story": "Como equipe, quero testes e CI em cada push ou PR para detectar regressões.",
+    "accept": "Testar colisão, cancelamento, reagendamento, validação e autorização; pipeline executa testes e build; registrar revisão técnica real nos PRs.",
+    "priority": "Must",
+    "key": "SCRUM-18"
+  },
+  {
+    "id": 11,
+    "title": "Publicação do MVP",
+    "points": 3,
+    "parent": "SCRUM-8",
+    "sprint": 4,
+    "story": "Como PO, quero uma versão publicada para demonstrar uma funcionalidade utilizável.",
+    "accept": "Publicar aplicação com banco persistente; registrar URL, versão e procedimento; informar acesso privado.",
+    "priority": "Must",
+    "key": "SCRUM-19"
+  },
+  {
+    "id": 12,
+    "title": "Relatório final e evidências",
+    "points": 2,
+    "parent": "SCRUM-8",
+    "sprint": 4,
+    "story": "Como squad, quero um PDF completo para entregar os itens do enunciado.",
+    "accept": "Seguir seções 3.1 a 3.9; texto pesquisável; prints acompanhados de descrição; registrar dados observados e planejamento sem inventar histórico.",
+    "priority": "Must",
+    "key": "SCRUM-20"
+  },
+  {
+    "id": 13,
+    "title": "WhatsApp automático (evolução)",
+    "points": 5,
+    "parent": "SCRUM-7",
+    "sprint": null,
+    "story": "Como cliente, quero receber notificações pelo WhatsApp para reduzir esquecimentos.",
+    "accept": "Configurar provedor, credenciais e templates; obter consentimento; verificar entrega real e evitar duplicatas. Fora do MVP atual.",
+    "priority": "Could",
+    "key": "SCRUM-21"
+  }
+]
