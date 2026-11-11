@@ -1,0 +1,351 @@
+{
+  "capturedAt": "2026-11-11T20:00:42.161Z",
+  "items": [
+    {
+      "key": "SCRUM-5",
+      "summary": "fadeUp E1 - Agendamento do cliente",
+      "status": "Tarefas pendentes",
+      "points": 0,
+      "sprint": [],
+      "versions": []
+    },
+    {
+      "key": "SCRUM-6",
+      "summary": "fadeUp E2 - Operação da barbearia",
+      "status": "Tarefas pendentes",
+      "points": 0,
+      "sprint": [],
+      "versions": []
+    },
+    {
+      "key": "SCRUM-7",
+      "summary": "fadeUp E3 - Comunicação",
+      "status": "Tarefas pendentes",
+      "points": 0,
+      "sprint": [],
+      "versions": []
+    },
+    {
+      "key": "SCRUM-8",
+      "summary": "fadeUp E4 - Qualidade e entrega",
+      "status": "Tarefas pendentes",
+      "points": 0,
+      "sprint": [],
+      "versions": []
+    },
+    {
+      "key": "SCRUM-9",
+      "summary": "US-001 - Catálogo de serviços",
+      "status": "Concluído",
+      "points": 2,
+      "sprint": [
+        {
+          "id": 3,
+          "name": "fadeUp - Semana 1 - Agendamento",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "startDate": "2026-11-11T12:00:00.000Z",
+          "endDate": "2026-11-18T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10000",
+          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v0.1 - API",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-10",
+      "summary": "US-002 - Horários disponíveis",
+      "status": "Concluído",
+      "points": 3,
+      "sprint": [
+        {
+          "id": 3,
+          "name": "fadeUp - Semana 1 - Agendamento",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "startDate": "2026-11-11T12:00:00.000Z",
+          "endDate": "2026-11-18T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10000",
+          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v0.1 - API",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-11",
+      "summary": "US-003 - Reservar atendimento",
+      "status": "Concluído",
+      "points": 5,
+      "sprint": [
+        {
+          "id": 3,
+          "name": "fadeUp - Semana 1 - Agendamento",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "startDate": "2026-11-11T12:00:00.000Z",
+          "endDate": "2026-11-18T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10000",
+          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v0.1 - API",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-12",
+      "summary": "US-004 - Cancelar com chave de acesso",
+      "status": "Concluído",
+      "points": 3,
+      "sprint": [
+        {
+          "id": 3,
+          "name": "fadeUp - Semana 1 - Agendamento",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "startDate": "2026-11-11T12:00:00.000Z",
+          "endDate": "2026-11-18T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10000",
+          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v0.1 - API",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-13",
+      "summary": "US-005 - Reagendar com segurança",
+      "status": "Concluído",
+      "points": 3,
+      "sprint": [
+        {
+          "id": 3,
+          "name": "fadeUp - Semana 1 - Agendamento",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+          "startDate": "2026-11-11T12:00:00.000Z",
+          "endDate": "2026-11-18T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10000",
+          "description": "API SQLite, disponibilidade e reservas. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v0.1 - API",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-14",
+      "summary": "US-006 - Agenda do operador",
+      "status": "Concluído",
+      "points": 3,
+      "sprint": [
+        {
+          "id": 4,
+          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "state": "future",
+          "boardId": 1,
+          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "startDate": "2026-11-18T12:00:00.000Z",
+          "endDate": "2026-11-25T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10001",
+          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v1.0 - MVP",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-25"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-15",
+      "summary": "US-007 - Configurar serviços e expediente",
+      "status": "Concluído",
+      "points": 3,
+      "sprint": [
+        {
+          "id": 4,
+          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "state": "future",
+          "boardId": 1,
+          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "startDate": "2026-11-18T12:00:00.000Z",
+          "endDate": "2026-11-25T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10001",
+          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v1.0 - MVP",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-25"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-16",
+      "summary": "US-008 - Bloquear horário e inserir encaixe",
+      "status": "Concluído",
+      "points": 2,
+      "sprint": [
+        {
+          "id": 4,
+          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "state": "future",
+          "boardId": 1,
+          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "startDate": "2026-11-18T12:00:00.000Z",
+          "endDate": "2026-11-25T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10001",
+          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v1.0 - MVP",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-25"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-17",
+      "summary": "US-009 - Confirmação e histórico",
+      "status": "Concluído",
+      "points": 2,
+      "sprint": [
+        {
+          "id": 4,
+          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "state": "future",
+          "boardId": 1,
+          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "startDate": "2026-11-18T12:00:00.000Z",
+          "endDate": "2026-11-25T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10001",
+          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v1.0 - MVP",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-25"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-18",
+      "summary": "US-010 - Qualidade e integração contínua",
+      "status": "Concluído",
+      "points": 3,
+      "sprint": [
+        {
+          "id": 4,
+          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "state": "future",
+          "boardId": 1,
+          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "startDate": "2026-11-18T12:00:00.000Z",
+          "endDate": "2026-11-25T12:00:00.000Z"
+        }
+      ],
+      "versions": [
+        {
+          "id": "10001",
+          "description": "Fluxo cliente, painel, CI, deploy e PDF. Datas planejadas de referência em duas semanas, sem retroagir o histórico.",
+          "name": "fadeUp v1.0 - MVP",
+          "archived": false,
+          "released": false,
+          "releaseDate": "2026-11-25"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-19",
+      "summary": "US-011 - Publicação do MVP",
+      "status": "Em andamento",
+      "points": 3,
+      "sprint": [
+        {
+          "id": 4,
+          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "state": "future",
+          "boardId": 1,
+          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "startDate": "2026-11-18T12:00:00.000Z",
+          "endDate": "2026-11-25T12:00:00.000Z"
+        }
+      ],
+      "versions": []
+    },
+    {
+      "key": "SCRUM-20",
+      "summary": "US-012 - Relatório final e evidências",
+      "status": "Em andamento",
+      "points": 2,
+      "sprint": [
+        {
+          "id": 4,
+          "name": "fadeUp - Semana 2 - Operação e entrega",
+          "state": "future",
+          "boardId": 1,
+          "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+          "startDate": "2026-11-18T12:00:00.000Z",
+          "endDate": "2026-11-25T12:00:00.000Z"
+        }
+      ],
+      "versions": []
+    },
+    {
+      "key": "SCRUM-21",
+      "summary": "US-013 - WhatsApp automático (evolução)",
+      "status": "Tarefas pendentes",
+      "points": 5,
+      "sprint": [],
+      "versions": []
+    }
+  ]
+}

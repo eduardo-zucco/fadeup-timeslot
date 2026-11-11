@@ -45,3 +45,6 @@ yarn-error.log*
 .DS_Store
 /data/
 /.dev.vars
+/tmp/
+__pycache__/
+*.pyc

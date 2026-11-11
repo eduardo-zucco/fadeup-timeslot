@@ -1,0 +1,416 @@
+{
+  "capturedAt": "2026-11-11T19:49:22.680Z",
+  "items": [
+    {
+      "key": "SCRUM-5",
+      "summary": "fadeUp E1 - Agendamento do cliente",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0000n:"
+        },
+        "development": {
+          "id": "customfield_10000",
+          "value": "{}"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-6",
+      "summary": "fadeUp E2 - Operação da barbearia",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0000o:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-7",
+      "summary": "fadeUp E3 - Comunicação",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0000w:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-8",
+      "summary": "fadeUp E4 - Qualidade e entrega",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0001b:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-9",
+      "summary": "US-001 - Catálogo de serviços",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 3,
+              "name": "fadeUp - Semana 1 - Agendamento",
+              "state": "active",
+              "boardId": 1,
+              "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+              "startDate": "2026-11-11T12:00:00.000Z",
+              "endDate": "2026-11-18T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 2
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0001i:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-10",
+      "summary": "US-002 - Horários disponíveis",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 3,
+              "name": "fadeUp - Semana 1 - Agendamento",
+              "state": "active",
+              "boardId": 1,
+              "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+              "startDate": "2026-11-11T12:00:00.000Z",
+              "endDate": "2026-11-18T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 3
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0001w:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-11",
+      "summary": "US-003 - Reservar atendimento",
+      "status": "Em análise",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 3,
+              "name": "fadeUp - Semana 1 - Agendamento",
+              "state": "active",
+              "boardId": 1,
+              "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+              "startDate": "2026-11-11T12:00:00.000Z",
+              "endDate": "2026-11-18T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 5
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i00022:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-12",
+      "summary": "US-004 - Cancelar com chave de acesso",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 3,
+              "name": "fadeUp - Semana 1 - Agendamento",
+              "state": "active",
+              "boardId": 1,
+              "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+              "startDate": "2026-11-11T12:00:00.000Z",
+              "endDate": "2026-11-18T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 3
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0002f:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-13",
+      "summary": "US-005 - Reagendar com segurança",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 3,
+              "name": "fadeUp - Semana 1 - Agendamento",
+              "state": "active",
+              "boardId": 1,
+              "goal": "Disponibilizar catálogo, horários e reserva segura; planejamento de uma semana.",
+              "startDate": "2026-11-11T12:00:00.000Z",
+              "endDate": "2026-11-18T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 3
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0002k:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-14",
+      "summary": "US-006 - Agenda do operador",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 4,
+              "name": "fadeUp - Semana 2 - Operação e entrega",
+              "state": "future",
+              "boardId": 1,
+              "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+              "startDate": "2026-11-18T12:00:00.000Z",
+              "endDate": "2026-11-25T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 3
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0002w:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-15",
+      "summary": "US-007 - Configurar serviços e expediente",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 4,
+              "name": "fadeUp - Semana 2 - Operação e entrega",
+              "state": "future",
+              "boardId": 1,
+              "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+              "startDate": "2026-11-18T12:00:00.000Z",
+              "endDate": "2026-11-25T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 3
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i00030:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-16",
+      "summary": "US-008 - Bloquear horário e inserir encaixe",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 4,
+              "name": "fadeUp - Semana 2 - Operação e entrega",
+              "state": "future",
+              "boardId": 1,
+              "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+              "startDate": "2026-11-18T12:00:00.000Z",
+              "endDate": "2026-11-25T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 2
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0003b:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-17",
+      "summary": "US-009 - Confirmação e histórico",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 4,
+              "name": "fadeUp - Semana 2 - Operação e entrega",
+              "state": "future",
+              "boardId": 1,
+              "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+              "startDate": "2026-11-18T12:00:00.000Z",
+              "endDate": "2026-11-25T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 2
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0003e:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-18",
+      "summary": "US-010 - Qualidade e integração contínua",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 4,
+              "name": "fadeUp - Semana 2 - Operação e entrega",
+              "state": "future",
+              "boardId": 1,
+              "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+              "startDate": "2026-11-18T12:00:00.000Z",
+              "endDate": "2026-11-25T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 3
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0003o:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-19",
+      "summary": "US-011 - Publicação do MVP",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 4,
+              "name": "fadeUp - Semana 2 - Operação e entrega",
+              "state": "future",
+              "boardId": 1,
+              "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+              "startDate": "2026-11-18T12:00:00.000Z",
+              "endDate": "2026-11-25T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 3
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0003q:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-20",
+      "summary": "US-012 - Relatório final e evidências",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Sprint": {
+          "id": "customfield_10020",
+          "value": [
+            {
+              "id": 4,
+              "name": "fadeUp - Semana 2 - Operação e entrega",
+              "state": "future",
+              "boardId": 1,
+              "goal": "Concluir operação, qualidade, deploy e documentação; planejamento de uma semana.",
+              "startDate": "2026-11-18T12:00:00.000Z",
+              "endDate": "2026-11-25T12:00:00.000Z"
+            }
+          ]
+        },
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 2
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i0003z:"
+        }
+      }
+    },
+    {
+      "key": "SCRUM-21",
+      "summary": "US-013 - WhatsApp automático (evolução)",
+      "status": "Tarefas pendentes",
+      "fields": {
+        "Story point estimate": {
+          "id": "customfield_10016",
+          "value": 5
+        },
+        "Classificação": {
+          "id": "customfield_10019",
+          "value": "0|i00040:"
+        }
+      }
+    }
+  ]
+}

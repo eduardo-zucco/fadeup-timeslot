@@ -1,0 +1,129 @@
+{
+  "capturedAt": "2026-11-11T20:13:22.858Z",
+  "reviews": [
+    {
+      "pr": 1,
+      "comments": [
+        {
+          "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/1#pullrequestreview-5864259130",
+          "body": "Revisão técnica assistida por Codex, executada nesta sessão; não representa revisão independente de outro integrante.\n\nVerificados: SQL parametrizado, chave de gerenciamento, autorização do painel, transação de reserva/reagendamento e rollback. Os 16 testes locais passaram.\n\nAjustes encontrados antes da integração: o lockfile ainda carregava pacotes do scaffold anterior; reduzir para zero dependências. Acrescentar teste explícito de origem externa (o título do teste atual cita essa verificação, mas ainda não a exerce). A interface e a publicação ficam para os próximos PRs.",
+          "user": {
+            "login": "eduardo-zucco",
+            "name": "eduardo-zucco",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/213120949?u=0825deb5566221aeea5fc6153b7bdb0f516c261e&v=4",
+            "id": 213120949
+          },
+          "id": 5864259130,
+          "pull_request_review_id": null,
+          "in_reply_to_id": null,
+          "created_at": "2026-11-11T19:23:58Z",
+          "updated_at": null,
+          "review": "COMMENTED",
+          "side": null,
+          "line": null,
+          "start_line": null,
+          "path": null,
+          "body_html": "<p dir=\"auto\">Revisão técnica assistida por Codex, executada nesta sessão; não representa revisão independente de outro integrante.</p>\n<p dir=\"auto\">Verificados: SQL parametrizado, chave de gerenciamento, autorização do painel, transação de reserva/reagendamento e rollback. Os 16 testes locais passaram.</p>\n<p dir=\"auto\">Ajustes encontrados antes da integração: o lockfile ainda carregava pacotes do scaffold anterior; reduzir para zero dependências. Acrescentar teste explícito de origem externa (o título do teste atual cita essa verificação, mas ainda não a exerce). A interface e a publicação ficam para os próximos PRs.</p>"
+        }
+      ],
+      "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/1",
+      "title": "eduardo-zucco/fadeup-timeslot PR #1 comments",
+      "display_url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/1",
+      "display_title": "eduardo-zucco/fadeup-timeslot PR #1 comments"
+    },
+    {
+      "pr": 2,
+      "comments": [
+        {
+          "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/2#pullrequestreview-5864379086",
+          "body": "Revisão técnica assistida por Codex. Fluxo de reserva executado no navegador: serviço → data/horário → dados → confirmação; reserva persistida e visível na agenda do operador.\n\nAjustes identificados: corrigir a ordenação do histórico para comparar data e início da mesma reserva; descartar respostas de disponibilidade após mudança de tela; remover a dependência de fontes externas para funcionamento offline. Verificar também o layout desktop, além do mobile já observado.\n\nNão houve revisão independente por outro membro da squad.",
+          "user": {
+            "login": "eduardo-zucco",
+            "name": "eduardo-zucco",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/213120949?u=0825deb5566221aeea5fc6153b7bdb0f516c261e&v=4",
+            "id": 213120949
+          },
+          "id": 5864379086,
+          "pull_request_review_id": null,
+          "in_reply_to_id": null,
+          "created_at": "2026-11-11T19:34:08Z",
+          "updated_at": null,
+          "review": "COMMENTED",
+          "side": null,
+          "line": null,
+          "start_line": null,
+          "path": null,
+          "body_html": "<p dir=\"auto\">Revisão técnica assistida por Codex. Fluxo de reserva executado no navegador: serviço → data/horário → dados → confirmação; reserva persistida e visível na agenda do operador.</p>\n<p dir=\"auto\">Ajustes identificados: corrigir a ordenação do histórico para comparar data e início da mesma reserva; descartar respostas de disponibilidade após mudança de tela; remover a dependência de fontes externas para funcionamento offline. Verificar também o layout desktop, além do mobile já observado.</p>\n<p dir=\"auto\">Não houve revisão independente por outro membro da squad.</p>"
+        }
+      ],
+      "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/2",
+      "title": "eduardo-zucco/fadeup-timeslot PR #2 comments",
+      "display_url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/2",
+      "display_title": "eduardo-zucco/fadeup-timeslot PR #2 comments"
+    },
+    {
+      "pr": 3,
+      "comments": [
+        {
+          "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/3#pullrequestreview-5864555418",
+          "body": "Revisão técnica assistida por Codex. Conferidos o build ESM, o manifesto de hospedagem, a migração apenas de esquema e o teste do Worker gerado. A API local e a publicada compartilham a mesma implementação; SQLite e D1 usam a mesma chave única de ocupação.\n\nValidação: 18 testes locais aprovados; testes, checagem e build no CI. O envio WhatsApp permanece fora do MVP. A implantação e o teste remoto serão registrados após a publicação.",
+          "user": {
+            "login": "eduardo-zucco",
+            "name": "eduardo-zucco",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/213120949?u=0825deb5566221aeea5fc6153b7bdb0f516c261e&v=4",
+            "id": 213120949
+          },
+          "id": 5864555418,
+          "pull_request_review_id": null,
+          "in_reply_to_id": null,
+          "created_at": "2026-11-11T19:49:24Z",
+          "updated_at": null,
+          "review": "COMMENTED",
+          "side": null,
+          "line": null,
+          "start_line": null,
+          "path": null,
+          "body_html": "<p dir=\"auto\">Revisão técnica assistida por Codex. Conferidos o build ESM, o manifesto de hospedagem, a migração apenas de esquema e o teste do Worker gerado. A API local e a publicada compartilham a mesma implementação; SQLite e D1 usam a mesma chave única de ocupação.</p>\n<p dir=\"auto\">Validação: 18 testes locais aprovados; testes, checagem e build no CI. O envio WhatsApp permanece fora do MVP. A implantação e o teste remoto serão registrados após a publicação.</p>"
+        }
+      ],
+      "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/3",
+      "title": "eduardo-zucco/fadeup-timeslot PR #3 comments",
+      "display_url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/3",
+      "display_title": "eduardo-zucco/fadeup-timeslot PR #3 comments"
+    },
+    {
+      "pr": 4,
+      "comments": [
+        {
+          "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/4#pullrequestreview-5864705626",
+          "body": "Revisão técnica assistida por Codex. Conferidos volume SQLite em /data, porta do provedor, escuta em 0.0.0.0 e autenticação do painel por ADMIN_KEY em modo público. O servidor descarta cabeçalhos de identidade enviados pelo cliente.\n\nValidação: 20 testes aprovados, incluindo teste HTTP real de cabeçalho falso, chave administrativa e origem HTTPS encaminhada pelo proxy. CI verde.\n\nA publicação foi adiada para o final pelo proprietário; nenhum plano pago foi contratado. Esta é uma revisão assistida, não uma aprovação independente de outro integrante.",
+          "user": {
+            "login": "eduardo-zucco",
+            "name": "eduardo-zucco",
+            "email": null,
+            "avatar_url": "https://avatars.githubusercontent.com/u/213120949?u=0825deb5566221aeea5fc6153b7bdb0f516c261e&v=4",
+            "id": 213120949
+          },
+          "id": 5864705626,
+          "pull_request_review_id": null,
+          "in_reply_to_id": null,
+          "created_at": "2026-11-11T20:02:15Z",
+          "updated_at": null,
+          "review": "COMMENTED",
+          "side": null,
+          "line": null,
+          "start_line": null,
+          "path": null,
+          "body_html": "<p dir=\"auto\">Revisão técnica assistida por Codex. Conferidos volume SQLite em /data, porta do provedor, escuta em 0.0.0.0 e autenticação do painel por ADMIN_KEY em modo público. O servidor descarta cabeçalhos de identidade enviados pelo cliente.</p>\n<p dir=\"auto\">Validação: 20 testes aprovados, incluindo teste HTTP real de cabeçalho falso, chave administrativa e origem HTTPS encaminhada pelo proxy. CI verde.</p>\n<p dir=\"auto\">A publicação foi adiada para o final pelo proprietário; nenhum plano pago foi contratado. Esta é uma revisão assistida, não uma aprovação independente de outro integrante.</p>"
+        }
+      ],
+      "url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/4",
+      "title": "eduardo-zucco/fadeup-timeslot PR #4 comments",
+      "display_url": "https://github.com/eduardo-zucco/fadeup-timeslot/pull/4",
+      "display_title": "eduardo-zucco/fadeup-timeslot PR #4 comments"
+    }
+  ]
+}
