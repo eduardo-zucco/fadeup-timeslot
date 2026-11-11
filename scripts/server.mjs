@@ -30,5 +30,5 @@ const server=createServer(async(req,res)=>{
   res.writeHead(result.status,Object.fromEntries(result.headers));res.end(Buffer.from(await result.arrayBuffer()));
  }catch(e){console.error(e.message);res.writeHead(500);res.end('Erro interno');}
 });
-server.listen(port,host,()=>console.log(`fadeUp: http://${host}:${port} (SQLite)`));
+server.listen(port,host,()=>console.log(`fadeUp: http://${host}:${server.address().port} (SQLite)`));
 process.on('SIGTERM',()=>server.close(()=>{db.close();process.exit(0);}));
