@@ -16,7 +16,9 @@ npm run check
 npm run build
 ```
 
-Produção: Cloudflare Worker e D1 (SQLite), via Sites. O painel é autorizado pelo e-mail `ADMIN_EMAIL`, comparado à identidade fornecida pela plataforma. O Site permanece privado até que o proprietário escolha compartilhar.
+Hospedagem preferida: Railway Free com volume persistente para SQLite. Consulte [publicação gratuita](docs/publicacao-gratuita.md). Não houve contratação de plano pago. Fora da prévia local, o painel exige `ADMIN_KEY` com pelo menos 24 caracteres, configurada no ambiente do servidor.
+
+O build alternativo de Cloudflare Worker/D1 também é gerado pelo CI; não é necessário para executar na Railway. O Sites ficou sem publicação para evitar cobrança futura.
 
 Dados iniciais de demonstração: Corte R$40/30min, Barba R$30/30min, Combo R$65/60min; segunda a sábado, 9h-18h. O operador pode alterar os valores no painel. Não são dados validados de uma barbearia real.
 
