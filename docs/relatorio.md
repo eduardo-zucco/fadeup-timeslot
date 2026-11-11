@@ -21,7 +21,7 @@ Projeto Jira e board: [https://eduardobarreto879.atlassian.net/jira/software/pro
 
 Repositório GitHub: [https://github.com/eduardo-zucco/fadeup-timeslot](https://github.com/eduardo-zucco/fadeup-timeslot)
 
-URL pública: publicação reservada para o final, conforme orientação do responsável. Aplicação local em http://127.0.0.1:5173. Essa URL local não substitui o requisito de uma funcionalidade no ar.
+URL pública: publicação adiada por orientação do responsável. Aplicação local em http://127.0.0.1:5173. Essa URL local não substitui o requisito de uma funcionalidade no ar.
 
 Data deste registro: 11 de novembro de 2026. Planejamento de referência: duas semanas, de 11 a 25 de novembro de 2026. Código e registros desta execução assistida foram produzidos em 11/11/2026; o documento não apresenta duas semanas fictícias de trabalho.
 
@@ -268,7 +268,7 @@ Como PO, quero uma versão publicada para demonstrar uma funcionalidade utilizá
 
 Critério de aceite: Publicar aplicação com banco persistente; registrar URL, versão e procedimento; informar acesso privado.
 
-Estado verificado: Em andamento
+Estado verificado: Tarefas pendentes
 
 ### US-012 - Relatório final e evidências | SCRUM-20 | 2 pontos
 
@@ -276,7 +276,7 @@ Como squad, quero um PDF completo para entregar os itens do enunciado.
 
 Critério de aceite: Seguir seções 3.1 a 3.9; texto pesquisável; prints acompanhados de descrição; registrar dados observados e planejamento sem inventar histórico.
 
-Estado verificado: Em análise
+Estado verificado: Concluído
 
 ### US-013 - WhatsApp automático (evolução) | SCRUM-21 | 5 pontos
 
@@ -293,7 +293,7 @@ Estado verificado: Tarefas pendentes
 
 | fadeUp v0.1 - API / ID 10000 | 18/11/2026 | API SQLite, disponibilidade, reserva e gerenciamento. Implementação integrada antes da data prevista. |
 
-| fadeUp v1.0 - MVP / ID 10001 | 25/11/2026 | Interface, painel, CI, publicação e PDF. Publicação segue reservada para o final. |
+| fadeUp v1.0 - MVP / ID 10001 | 25/11/2026 | Interface, painel, CI, publicação e PDF. Publicação adiada pelo responsável. |
 
 
 
@@ -344,13 +344,13 @@ Sprint Goal: Organizar a operação da barbearia e preparar qualidade, publicaç
 
 | US-010 / SCRUM-18 | Qualidade e integração contínua | 3 | Concluído |
 
-| US-011 / SCRUM-19 | Publicação do MVP | 3 | Em andamento |
+| US-011 / SCRUM-19 | Publicação do MVP | 3 | Tarefas pendentes |
 
-| US-012 / SCRUM-20 | Relatório final e evidências | 2 | Em análise |
+| US-012 / SCRUM-20 | Relatório final e evidências | 2 | Concluído |
 
 
 
-Planejado: 18 pontos. Concluído no registro consultado: 13 pontos. Restante: 5 pontos.
+Planejado: 18 pontos. Concluído no registro consultado: 15 pontos. Restante: 3 pontos.
 
 Agenda e painel foram incluídos no PR #2; CI e build no PR #3; adaptação para Railway no PR #4. A publicação depende da etapa final na conta gratuita do responsável. A documentação foi preparada nesta entrega.
 
@@ -491,13 +491,13 @@ Suíte final: 20 testes aprovados. Cobre expediente, duração, fuso, dias fecha
 
 | Documentação e evidência | Relatório textual, fontes editáveis, capturas reais e exports do Jira. |
 
-| Deploy e acesso de avaliação | Publicação reservada para o final; liberar acesso do professor antes de enviar. |
+| Deploy e acesso de avaliação | Publicação adiada pelo responsável; liberar acesso do professor antes de enviar. |
 
 
 
 ### Deploy e operação
 
-A aplicação foi executada e testada localmente, mas ainda não foi publicada. A publicação ficou para o final por orientação do responsável. O Dockerfile e railway.json estão prontos. Na Railway, é necessário escolher o plano gratuito, anexar volume em /data, configurar ADMIN_KEY e gerar o domínio. Não foi contratado plano pago. Sem uma URL publicada verificada, a parte de deploy do enunciado permanece pendente.
+A aplicação foi executada e testada localmente, mas ainda não foi publicada. A publicação foi adiada por orientação do responsável. O Dockerfile e railway.json estão prontos. Na Railway, é necessário escolher o plano gratuito, anexar volume em /data, configurar ADMIN_KEY e gerar o domínio. Não foi contratado plano pago. Sem uma URL publicada verificada, a parte de deploy do enunciado permanece pendente.
 
 Para repetir localmente: instalar Node 24 e executar npm start na pasta do projeto; abrir http://127.0.0.1:5173. O banco é criado em data/fadeup.sqlite. Para validar: npm test, npm run check e npm run build. O SQLite local não é enviado ao repositório. Em hospedagem, testar a permanência de uma reserva após reiniciar o serviço confirma a persistência do volume.
 
@@ -511,7 +511,7 @@ Para repetir localmente: instalar Node 24 e executar npm start na pasta do proje
 
 | Semana 1 | 16 | 16 | 0 |
 
-| Semana 2 | 18 | 13 | 5 |
+| Semana 2 | 18 | 15 | 3 |
 
 
 
@@ -526,7 +526,7 @@ O total do MVP é 34 pontos em 12 histórias. A US-013 soma mais 5 pontos fora d
 
 | Após código e testes | 2026-11-11 20:00:42 UTC | 5 |
 
-| Conferência final | 2026-11-11 20:12:21 UTC | 5 |
+| Conferência final | 2026-11-11 20:17:54 UTC | 3 |
 
 
 

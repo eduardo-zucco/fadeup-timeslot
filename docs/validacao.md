@@ -11,7 +11,7 @@ Data: 11/11/2026.
 
 ## Pendências externas
 
-- Publicar ao final na conta gratuita escolhida pelo proprietário. Não houve deploy nem contratação de plano pago.
+- Publicação adiada pelo proprietário; retomar quando solicitado. Não houve deploy nem contratação de plano pago.
 - Confirmar acesso do professor ao Jira e ao repositório.
 - Obter revisão humana independente e validação do PO, caso exigidas na avaliação.
 - Os planos de duas semanas, capacidade e estimativas não comprovam cerimônias ou duas semanas históricas. O relatório registra essa distinção.

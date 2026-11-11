@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-11-11T20:12:21.979Z",
+  "capturedAt": "2026-11-11T20:17:54.330Z",
   "items": [
     {
       "key": "SCRUM-5",
@@ -325,7 +325,7 @@
     {
       "key": "SCRUM-19",
       "summary": "US-011 - Publicação do MVP",
-      "status": "Em andamento",
+      "status": "Tarefas pendentes",
       "points": 3,
       "sprint": [
         {
@@ -353,7 +353,7 @@
     {
       "key": "SCRUM-20",
       "summary": "US-012 - Relatório final e evidências",
-      "status": "Em análise",
+      "status": "Concluído",
       "points": 2,
       "sprint": [
         {
