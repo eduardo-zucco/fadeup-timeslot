@@ -23,7 +23,7 @@ Repositório GitHub: [https://github.com/eduardo-zucco/fadeup-timeslot](https://
 
 URL pública: publicação adiada por orientação do responsável. Aplicação local em http://127.0.0.1:5173. Essa URL local não substitui o requisito de uma funcionalidade no ar.
 
-Data deste registro: 11 de novembro de 2026. Planejamento de referência: duas semanas, de 11 a 25 de novembro de 2026. Código e registros desta execução assistida foram produzidos em 11/11/2026; o documento não apresenta duas semanas fictícias de trabalho.
+Data deste registro: 11 de novembro de 2026. Janela de referência solicitada: de 11 a 13 de novembro de 2026. A maior parte do MVP já está implementada. Código e evidências existentes mantêm suas datas reais; as atividades futuras não são apresentadas como concluídas.
 
 Acesso do professor: os links exigem as permissões das respectivas contas. A liberação ao professor precisa ser confirmada pelo responsável antes da entrega. Não há comprovação de convite ou acesso público neste registro.
 
@@ -291,22 +291,22 @@ Estado verificado: Tarefas pendentes
 | Versão | Data planejada | Entrega |
 | --- | --- | --- |
 
-| fadeUp v0.1 - API / ID 10000 | 18/11/2026 | API SQLite, disponibilidade, reserva e gerenciamento. Implementação integrada antes da data prevista. |
+| fadeUp v0.1 - API / ID 10000 | 11/11/2026 | API SQLite, disponibilidade, reserva e gerenciamento. Marco de referência; integração comprovada em 11/11/2026. |
 
-| fadeUp v1.0 - MVP / ID 10001 | 25/11/2026 | Interface, painel, CI, publicação e PDF. Publicação adiada pelo responsável. |
+| fadeUp v1.0 - MVP / ID 10001 | 13/11/2026 | Interface, painel, CI, publicação e PDF. Publicação adiada pelo responsável. |
 
 
 
 
 ## 3.5 Sprints - Scrum
 
-O plano foi dividido em dois ciclos semanais. A execução assistida foi concentrada em 11/11/2026. As datas do plano não constituem prova de duas semanas de trabalho, e os resultados abaixo se baseiam no estado real do Jira e dos PRs.
+A janela de referência de 11/11/2026 a 13/11/2026 foi organizada em dois ciclos curtos: base do agendamento no primeiro dia e consolidação da operação e entrega até o dia 13. A execução já comprovada ocorreu em 11/11/2026. Os resultados abaixo se baseiam no estado real do Jira e dos PRs; o cronograma não transforma trabalho futuro em entrega realizada.
 
-Conferência do Jira: a sprint 3 foi encerrada em 11/11/2026 com 16 pontos concluídos. A sprint 4 foi iniciada nesse mesmo dia para organizar o trabalho restante, antes do período originalmente planejado. O histórico conserva essa antecipação; não foi alterado para simular duas semanas decorridas.
+Conferência do Jira: a sprint 3 foi encerrada em 11/11/2026 com 16 pontos concluídos. A sprint 4 foi iniciada nesse mesmo dia para organizar o trabalho restante. As datas operacionais do Jira e as evidências permanecem reais; a janela de referência foi ajustada a pedido do responsável e não comprova execução durante todo o intervalo.
 
-### fadeUp - Semana 1 - Agendamento | sprint ID 3
+### fadeUp - Ciclo 1 - Agendamento | sprint ID 3
 
-Sprint Goal: Permitir escolher serviço e horário, reservar sem sobreposição e gerenciar a reserva. Período planejado: 11 a 18/11/2026.
+Sprint Goal: Permitir escolher serviço e horário, reservar sem sobreposição e gerenciar a reserva. Período planejado: 11/11/2026.
 
 | Item | Sprint Backlog | Pontos | Resultado verificado |
 | --- | --- | --- | --- |
@@ -327,9 +327,9 @@ Planejado: 16 pontos. Concluído no registro consultado: 16 pontos. Restante: 0 
 
 O núcleo do agendamento foi integrado nos PRs #1 e #2. Conflitos, cancelamento e reagendamento foram cobertos pelos testes e o fluxo de reserva foi executado no navegador.
 
-### fadeUp - Semana 2 - Operação e entrega | sprint ID 4
+### fadeUp - Ciclo 2 - Operação e entrega | sprint ID 4
 
-Sprint Goal: Organizar a operação da barbearia e preparar qualidade, publicação e relatório. Período planejado: 18 a 25/11/2026.
+Sprint Goal: Organizar a operação da barbearia e preparar qualidade, publicação e relatório. Período planejado: 11 a 13/11/2026.
 
 | Item | Sprint Backlog | Pontos | Resultado verificado |
 | --- | --- | --- | --- |
@@ -356,9 +356,9 @@ Agenda e painel foram incluídos no PR #2; CI e build no PR #3; adaptação para
 
 ### Capacidade proposta e cálculo
 
-Hipótese para o planejamento, ainda não confirmada pela squad: quatro integrantes, uma hora disponível por dia útil e cinco dias por semana = 20 horas brutas por ciclo. Reservar 20% para alinhamento e imprevistos deixa 16 horas úteis por ciclo, ou 32 horas úteis nas duas semanas. Esse cálculo é uma hipótese de disponibilidade, não um registro de horas efetivamente trabalhadas.
+Hipótese de capacidade, ainda não confirmada pela squad: quatro integrantes, uma hora disponível por dia e três dias de referência (11, 12 e 13/11) = 12 horas brutas. Reservar 20% para alinhamento e imprevistos deixa 9,6 horas úteis na janela. Como divisão indicativa, 3,2 horas correspondem ao dia 11 e 6,4 horas aos dias 12 e 13. A maior parte do código já está implementada; essa conta orienta o planejamento restante e não é um registro de horas trabalhadas.
 
-A carga de 16 e 18 pontos é uma estimativa inicial. Sem velocity histórica da equipe, não é possível assegurar que essa capacidade comporta os dois valores; a primeira revisão de planejamento deve ajustar o escopo com base na entrega observada.
+Os 16 e 18 pontos preservam as estimativas do backlog; não são recalculados proporcionalmente aos dias. Sem velocity histórica e disponibilidade confirmada, não é possível garantir prazo para os itens restantes. A publicação permanece adiada pelo responsável e a falha de concorrência identificada na auditoria ainda precisa de correção.
 
 
 ## 3.6 Kanban e board
@@ -382,7 +382,7 @@ Evolução observada: o primeiro checkpoint mostrava as histórias ainda pendent
 
 ### Dailies e acompanhamento
 
-Não existem registros de Dailies da squad no período de duas semanas. Nesta execução houve atualizações pelo chat, com trabalho concluído, próximo passo e impedimentos. Essas atualizações não são apresentadas como reuniões Scrum de todos os integrantes.
+Não existem registros de Dailies da squad nesta execução. Nesta execução houve atualizações pelo chat, com trabalho concluído, próximo passo e impedimentos. Essas atualizações não são apresentadas como reuniões Scrum de todos os integrantes.
 
 Rotina recomendada para a squad: encontro de até 15 minutos em cada dia útil, observando o Sprint Goal e o board. Eduardo facilita o fluxo; os participantes identificam impedimentos e combinam o próximo trabalho. Decisões de produto seguem para Lucas. A realização desses encontros precisa ser registrada pela equipe.
 
@@ -474,12 +474,14 @@ Execução CI aprovada: [https://github.com/eduardo-zucco/fadeup-timeslot/action
 
 ### Testes e Definition of Done
 
-Suíte final: 20 testes aprovados. Cobre expediente, duração, fuso, dias fechados, datas inválidas, intervalo, consentimento, telefone, configuração, reserva concorrente, cancelamento, reagendamento em conflito, rollback, autorização, origem externa, chave administrativa, artefato Worker e servidor HTTP público atrás de proxy HTTPS. O arquivo evidence/testes.txt preserva a saída da suíte.
+Suíte existente: 20 testes aprovados. Cobre expediente, duração, fuso, dias fechados, datas inválidas, intervalo, consentimento, telefone, configuração, reserva concorrente, cancelamento, reagendamento em conflito, rollback, autorização, origem externa, chave administrativa, artefato Worker e servidor HTTP público atrás de proxy HTTPS. O arquivo evidence/testes.txt preserva a saída da suíte.
+
+A auditoria adicional reproduziu uma falha não coberta pelos 20 testes: cancelamento e reagendamento simultâneos da mesma reserva retornaram sucesso, mas deixaram o atendimento cancelado com células ainda ocupadas. A correção é pendente e a validação funcional não é integral. A matriz completa está em docs/auditoria-escopo.md.
 
 | Item da DoD | Verificação |
 | --- | --- |
 
-| Critério de aceite implementado | Fluxos cobertos pelos testes e demonstração local, dentro do recorte do MVP. |
+| Critério de aceite implementado | Fluxos básicos cobertos. Falha de concorrência entre cancelamento e reagendamento permanece pendente de correção. |
 
 | Persistência e ausência de choque | SQLite, chave única de ocupação e transações verificadas. |
 
@@ -509,13 +511,13 @@ Para repetir localmente: instalar Node 24 e executar npm start na pasta do proje
 | Ciclo planejado | Planejados | Concluídos no Jira | Restantes |
 | --- | --- | --- | --- |
 
-| Semana 1 | 16 | 16 | 0 |
+| Ciclo 1 | 16 | 16 | 0 |
 
-| Semana 2 | 18 | 15 | 3 |
+| Ciclo 2 | 18 | 15 | 3 |
 
 
 
-O total do MVP é 34 pontos em 12 histórias. A US-013 soma mais 5 pontos fora do MVP e não entra nos indicadores dos ciclos. Os números medem a atualização e verificação dos itens nesta execução; não são uma velocity histórica de duas semanas da equipe.
+O total do MVP é 34 pontos em 12 histórias. A US-013 soma mais 5 pontos fora do MVP e não entra nos indicadores dos ciclos. Os números medem a atualização e verificação dos itens nesta execução; não são uma velocity histórica consolidada da equipe.
 
 ### Burndown - observações reais
 
@@ -526,11 +528,11 @@ O total do MVP é 34 pontos em 12 histórias. A US-013 soma mais 5 pontos fora d
 
 | Após código e testes | 2026-11-11 20:00:42 UTC | 5 |
 
-| Conferência final | 2026-11-11 20:17:54 UTC | 3 |
+| Conferência final | 2026-11-11 20:41:29 UTC | 3 |
 
 
 
-Todos os checkpoints foram capturados em 11/11/2026. Não há série diária de 14 dias nem burndown diário verificável. Uma linha ideal de duas semanas poderia servir ao planejamento, mas não foi apresentada como resultado real.
+Todos os checkpoints foram capturados em 11/11/2026. Não há medições dos dias 12 e 13/11 porque esses dias ainda não ocorreram. Qualquer linha ideal de planejamento deve ser distinguida dos checkpoints reais.
 
 ### Registro de retrospectiva técnica - Start / Stop / Continue
 
@@ -562,13 +564,15 @@ O board deve refletir o resultado no momento da entrega. Nesta execução, parte
 
 ### Pendências para concluir a entrega acadêmica
 
+- Corrigir a falha reproduzida entre cancelamento e reagendamento simultâneos e acrescentar teste de regressão.
+
 - Publicar a aplicação no ambiente gratuito escolhido e registrar a URL verificada na capa.
 
 - Confirmar acesso do professor ao Jira e ao repositório.
 
 - Obter revisão humana independente e validação do PO, caso a avaliação exija essas evidências.
 
-- A squad registrar suas cerimônias e validar as estimativas; não há histórico de duas semanas nesta execução.
+- A squad registrar suas cerimônias e validar as estimativas; os registros futuros só devem ser incluídos depois de realizados.
 
 - Cada integrante enviar o mesmo PDF no portal da atividade com seu próprio acesso e guardar o protocolo. Nenhum envio acadêmico foi realizado pelo assistente.
 

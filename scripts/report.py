@@ -69,7 +69,7 @@ link('Projeto Jira e board','https://eduardobarreto879.atlassian.net/jira/softwa
 link('Repositório GitHub','https://github.com/eduardo-zucco/fadeup-timeslot')
 if DEPLOY.get('published') and DEPLOY.get('url'):link('Aplicação em staging',DEPLOY['url'])
 else:p('URL pública: publicação adiada por orientação do responsável. Aplicação local em http://127.0.0.1:5173. Essa URL local não substitui o requisito de uma funcionalidade no ar.')
-p('Data deste registro: 11 de novembro de 2026. Planejamento de referência: duas semanas, de 11 a 25 de novembro de 2026. Código e registros desta execução assistida foram produzidos em 11/11/2026; o documento não apresenta duas semanas fictícias de trabalho.')
+p('Data deste registro: 11 de novembro de 2026. Janela de referência solicitada: de 11 a 13 de novembro de 2026. A maior parte do MVP já está implementada. Código e evidências existentes mantêm suas datas reais; as atividades futuras não são apresentadas como concluídas.')
 p('Acesso do professor: os links exigem as permissões das respectivas contas. A liberação ao professor precisa ser confirmada pelo responsável antes da entrega. Não há comprovação de convite ou acesso público neste registro.')
 
 section('3.2 Discovery')
@@ -104,12 +104,12 @@ for s in BACKLOG:
     block=[text(html.escape(title),'Sub'),text(html.escape(s['story'])),text('<b>Critério de aceite:</b> '+html.escape(s['accept'])),text('<b>Estado verificado:</b> '+html.escape(STATES.get(s['key'],'Não disponível')),'SmallText')]
     story.append(KeepTogether(block));md.extend(['### '+title+'\n',s['story']+'\n','Critério de aceite: '+s['accept']+'\n','Estado verificado: '+STATES.get(s['key'],'Não disponível')+'\n'])
 h('Marcos - versões cadastradas no Jira')
-table(['Versão','Data planejada','Entrega'],[['fadeUp v0.1 - API / ID 10000','18/11/2026','API SQLite, disponibilidade, reserva e gerenciamento. Implementação integrada antes da data prevista.'],['fadeUp v1.0 - MVP / ID 10001','25/11/2026','Interface, painel, CI, publicação e PDF. Publicação adiada pelo responsável.']],[150,95,250])
+table(['Versão','Data planejada','Entrega'],[['fadeUp v0.1 - API / ID 10000','11/11/2026','API SQLite, disponibilidade, reserva e gerenciamento. Marco de referência; integração comprovada em 11/11/2026.'],['fadeUp v1.0 - MVP / ID 10001','13/11/2026','Interface, painel, CI, publicação e PDF. Publicação adiada pelo responsável.']],[150,95,250])
 
 section('3.5 Sprints - Scrum')
-p('O plano foi dividido em dois ciclos semanais. A execução assistida foi concentrada em 11/11/2026. As datas do plano não constituem prova de duas semanas de trabalho, e os resultados abaixo se baseiam no estado real do Jira e dos PRs.')
-p('Conferência do Jira: a sprint 3 foi encerrada em 11/11/2026 com 16 pontos concluídos. A sprint 4 foi iniciada nesse mesmo dia para organizar o trabalho restante, antes do período originalmente planejado. O histórico conserva essa antecipação; não foi alterado para simular duas semanas decorridas.')
-for sprint,name,goal,planned,dates in [(3,'Semana 1 - Agendamento','Permitir escolher serviço e horário, reservar sem sobreposição e gerenciar a reserva.',16,'11 a 18/11/2026'),(4,'Semana 2 - Operação e entrega','Organizar a operação da barbearia e preparar qualidade, publicação e relatório.',18,'18 a 25/11/2026')]:
+p('A janela de referência de 11/11/2026 a 13/11/2026 foi organizada em dois ciclos curtos: base do agendamento no primeiro dia e consolidação da operação e entrega até o dia 13. A execução já comprovada ocorreu em 11/11/2026. Os resultados abaixo se baseiam no estado real do Jira e dos PRs; o cronograma não transforma trabalho futuro em entrega realizada.')
+p('Conferência do Jira: a sprint 3 foi encerrada em 11/11/2026 com 16 pontos concluídos. A sprint 4 foi iniciada nesse mesmo dia para organizar o trabalho restante. As datas operacionais do Jira e as evidências permanecem reais; a janela de referência foi ajustada a pedido do responsável e não comprova execução durante todo o intervalo.')
+for sprint,name,goal,planned,dates in [(3,'Ciclo 1 - Agendamento','Permitir escolher serviço e horário, reservar sem sobreposição e gerenciar a reserva.',16,'11/11/2026'),(4,'Ciclo 2 - Operação e entrega','Organizar a operação da barbearia e preparar qualidade, publicação e relatório.',18,'11 a 13/11/2026')]:
     h(f'fadeUp - {name} | sprint ID {sprint}')
     p('Sprint Goal: '+goal+' Período planejado: '+dates+'.')
     items=[s for s in BACKLOG if s['sprint']==sprint]
@@ -120,15 +120,15 @@ for sprint,name,goal,planned,dates in [(3,'Semana 1 - Agendamento','Permitir esc
     if sprint==3:p('O núcleo do agendamento foi integrado nos PRs #1 e #2. Conflitos, cancelamento e reagendamento foram cobertos pelos testes e o fluxo de reserva foi executado no navegador.')
     else:p('Agenda e painel foram incluídos no PR #2; CI e build no PR #3; adaptação para Railway no PR #4. A publicação depende da etapa final na conta gratuita do responsável. A documentação foi preparada nesta entrega.')
 h('Capacidade proposta e cálculo')
-p('Hipótese para o planejamento, ainda não confirmada pela squad: quatro integrantes, uma hora disponível por dia útil e cinco dias por semana = 20 horas brutas por ciclo. Reservar 20% para alinhamento e imprevistos deixa 16 horas úteis por ciclo, ou 32 horas úteis nas duas semanas. Esse cálculo é uma hipótese de disponibilidade, não um registro de horas efetivamente trabalhadas.')
-p('A carga de 16 e 18 pontos é uma estimativa inicial. Sem velocity histórica da equipe, não é possível assegurar que essa capacidade comporta os dois valores; a primeira revisão de planejamento deve ajustar o escopo com base na entrega observada.')
+p('Hipótese de capacidade, ainda não confirmada pela squad: quatro integrantes, uma hora disponível por dia e três dias de referência (11, 12 e 13/11) = 12 horas brutas. Reservar 20% para alinhamento e imprevistos deixa 9,6 horas úteis na janela. Como divisão indicativa, 3,2 horas correspondem ao dia 11 e 6,4 horas aos dias 12 e 13. A maior parte do código já está implementada; essa conta orienta o planejamento restante e não é um registro de horas trabalhadas.')
+p('Os 16 e 18 pontos preservam as estimativas do backlog; não são recalculados proporcionalmente aos dias. Sem velocity histórica e disponibilidade confirmada, não é possível garantir prazo para os itens restantes. A publicação permanece adiada pelo responsável e a falha de concorrência identificada na auditoria ainda precisa de correção.')
 
 section('3.6 Kanban e board')
 table(['Coluna real do board','Significado e regra de saída'],[['To Do / Tarefas pendentes','Item compreendido, com critério de aceite e prioridade; ainda sem execução.'],['In Progress / Em andamento','Implementação ou documentação em execução. Avança quando existe resultado revisável e validação local.'],['In Review / Em análise','PR ou entrega em revisão. Correções e resultado do CI devem ser verificados.'],['Done / Concluído','Critérios técnicos verificados e código integrado. Publicação e aceitação humana são verificadas separadamente quando ainda pendentes.']],[180,315])
 p('Política de WIP adotada para esta execução: no máximo duas histórias/tarefas em andamento e uma em análise. Épicos agregadores não entram nesse limite. O board retornou constraintType = none: não há bloqueio automático de WIP configurado no Jira. O limite é uma política manual, não uma restrição imposta pela ferramenta.')
 p('Evolução observada: o primeiro checkpoint mostrava as histórias ainda pendentes, com SCRUM-11 em análise, embora parte do código já estivesse pronta. Após conferir testes e integrar os PRs, US-001 a US-010 foram movidas para Concluído. Publicação e relatório passaram a Em andamento. Esse atraso de atualização é um ponto de melhoria do processo; não foi reconstruído como se o board tivesse sido atualizado diariamente.')
 h('Dailies e acompanhamento')
-p('Não existem registros de Dailies da squad no período de duas semanas. Nesta execução houve atualizações pelo chat, com trabalho concluído, próximo passo e impedimentos. Essas atualizações não são apresentadas como reuniões Scrum de todos os integrantes.')
+p('Não existem registros de Dailies da squad nesta execução. Nesta execução houve atualizações pelo chat, com trabalho concluído, próximo passo e impedimentos. Essas atualizações não são apresentadas como reuniões Scrum de todos os integrantes.')
 p('Rotina recomendada para a squad: encontro de até 15 minutos em cada dia útil, observando o Sprint Goal e o board. Eduardo facilita o fluxo; os participantes identificam impedimentos e combinam o próximo trabalho. Decisões de produto seguem para Lucas. A realização desses encontros precisa ser registrada pela equipe.')
 
 section('3.7 Execução técnica')
@@ -149,8 +149,9 @@ h('Pipeline de integração contínua')
 p('O workflow CI roda em push e pull_request, em Ubuntu com Node 24. Executa npm ci --ignore-scripts, npm test, npm run check e npm run build. O artefato fadeup-worker guarda o diretório dist. Nos primeiros PRs o workflow executava a suíte inicial; o PR #3 ampliou o pipeline com checagem, build e artefato.')
 for run in [43086969699,43088503885,43090711621,43092264614]:link('Execução CI aprovada',f'https://github.com/eduardo-zucco/fadeup-timeslot/actions/runs/{run}')
 h('Testes e Definition of Done')
-p('Suíte final: 20 testes aprovados. Cobre expediente, duração, fuso, dias fechados, datas inválidas, intervalo, consentimento, telefone, configuração, reserva concorrente, cancelamento, reagendamento em conflito, rollback, autorização, origem externa, chave administrativa, artefato Worker e servidor HTTP público atrás de proxy HTTPS. O arquivo evidence/testes.txt preserva a saída da suíte.')
-table(['Item da DoD','Verificação'],[['Critério de aceite implementado','Fluxos cobertos pelos testes e demonstração local, dentro do recorte do MVP.'],['Persistência e ausência de choque','SQLite, chave única de ocupação e transações verificadas.'],['Validação e autorização','Campos obrigatórios, chave de reserva e acesso administrativo testados.'],['Testes e CI verdes','20 testes locais; execuções remotas aprovadas nos quatro PRs de implementação.'],['Revisão registrada','Revisão assistida real; aprovação humana independente ainda não comprovada.'],['Documentação e evidência','Relatório textual, fontes editáveis, capturas reais e exports do Jira.'],['Deploy e acesso de avaliação','Publicação adiada pelo responsável; liberar acesso do professor antes de enviar.']],[200,295])
+p('Suíte existente: 20 testes aprovados. Cobre expediente, duração, fuso, dias fechados, datas inválidas, intervalo, consentimento, telefone, configuração, reserva concorrente, cancelamento, reagendamento em conflito, rollback, autorização, origem externa, chave administrativa, artefato Worker e servidor HTTP público atrás de proxy HTTPS. O arquivo evidence/testes.txt preserva a saída da suíte.')
+p('A auditoria adicional reproduziu uma falha não coberta pelos 20 testes: cancelamento e reagendamento simultâneos da mesma reserva retornaram sucesso, mas deixaram o atendimento cancelado com células ainda ocupadas. A correção é pendente e a validação funcional não é integral. A matriz completa está em docs/auditoria-escopo.md.')
+table(['Item da DoD','Verificação'],[['Critério de aceite implementado','Fluxos básicos cobertos. Falha de concorrência entre cancelamento e reagendamento permanece pendente de correção.'],['Persistência e ausência de choque','SQLite, chave única de ocupação e transações verificadas.'],['Validação e autorização','Campos obrigatórios, chave de reserva e acesso administrativo testados.'],['Testes e CI verdes','20 testes locais; execuções remotas aprovadas nos quatro PRs de implementação.'],['Revisão registrada','Revisão assistida real; aprovação humana independente ainda não comprovada.'],['Documentação e evidência','Relatório textual, fontes editáveis, capturas reais e exports do Jira.'],['Deploy e acesso de avaliação','Publicação adiada pelo responsável; liberar acesso do professor antes de enviar.']],[200,295])
 h('Deploy e operação')
 if DEPLOY.get('published'):p('Publicação verificada: '+str(DEPLOY.get('provider'))+'. URL: '+str(DEPLOY.get('url'))+'. '+str(DEPLOY.get('notes','')))
 else:p('A aplicação foi executada e testada localmente, mas ainda não foi publicada. A publicação foi adiada por orientação do responsável. O Dockerfile e railway.json estão prontos. Na Railway, é necessário escolher o plano gratuito, anexar volume em /data, configurar ADMIN_KEY e gerar o domínio. Não foi contratado plano pago. Sem uma URL publicada verificada, a parte de deploy do enunciado permanece pendente.')
@@ -159,11 +160,11 @@ p('Para repetir localmente: instalar Node 24 e executar npm start na pasta do pr
 section('3.8 Métricas e retrospectiva')
 h('Velocity - pontos planejados e concluídos')
 velocity=[]
-for sprint,label,total in [(3,'Semana 1',16),(4,'Semana 2',18)]:
+for sprint,label,total in [(3,'Ciclo 1',16),(4,'Ciclo 2',18)]:
     done=sum(s['points'] for s in BACKLOG if s['sprint']==sprint and STATES.get(s['key'])=='Concluído')
     velocity.append([label,str(total),str(done),str(total-done)])
 table(['Ciclo planejado','Planejados','Concluídos no Jira','Restantes'],velocity,[170,100,120,105])
-p('O total do MVP é 34 pontos em 12 histórias. A US-013 soma mais 5 pontos fora do MVP e não entra nos indicadores dos ciclos. Os números medem a atualização e verificação dos itens nesta execução; não são uma velocity histórica de duas semanas da equipe.')
+p('O total do MVP é 34 pontos em 12 histórias. A US-013 soma mais 5 pontos fora do MVP e não entra nos indicadores dos ciclos. Os números medem a atualização e verificação dos itens nesta execução; não são uma velocity histórica consolidada da equipe.')
 h('Burndown - observações reais')
 burn=[]
 for filename,label in [('jira-checkpoint-01.json','Antes da atualização de conclusão'),('jira-checkpoint-02.json','Após código e testes'),('jira-final.json','Conferência final')]:
@@ -175,7 +176,7 @@ for filename,label in [('jira-checkpoint-01.json','Antes da atualização de con
         if match and item['status']!='Concluído':remaining+=match['points']
     burn.append([label,obs.get('capturedAt','')[:19].replace('T',' ')+' UTC',str(remaining)])
 table(['Checkpoint observado','Data da captura','Pontos restantes'],burn,[220,180,95])
-p('Todos os checkpoints foram capturados em 11/11/2026. Não há série diária de 14 dias nem burndown diário verificável. Uma linha ideal de duas semanas poderia servir ao planejamento, mas não foi apresentada como resultado real.')
+p('Todos os checkpoints foram capturados em 11/11/2026. Não há medições dos dias 12 e 13/11 porque esses dias ainda não ocorreram. Qualquer linha ideal de planejamento deve ser distinguida dos checkpoints reais.')
 h('Registro de retrospectiva técnica - Start / Stop / Continue')
 p('Data: 11/11/2026. Base: execução assistida, resultados dos testes, PRs e impedimentos observados. Trata-se de um registro técnico desta execução, sem comprovação de reunião ou aprovação coletiva dos quatro integrantes.')
 table(['Formato','Constatação e próxima ação'],[['Start','Validar personas e parâmetros com um negócio real. Fazer revisão cruzada por um colega em cada PR. Atualizar o Jira na mesma fase em que o código avança. Registrar medições ao encerrar cada dia.'],['Stop','Tratar todas as ideias da apresentação como obrigação do MVP. Usar bibliotecas sem necessidade. Confundir preparação de deploy com aplicação efetivamente publicada.'],['Continue','Entregar incrementos pequenos, preservar commits e PRs, testar transações e manter o foco no agendamento em quatro etapas. Usar SQLite enquanto a escala do MVP permitir.']],[80,415])
@@ -187,7 +188,7 @@ p('Consultar disponibilidade antes de gravar não basta para impedir reservas si
 h('Aprendizado de processo e Scrum')
 p('O board deve refletir o resultado no momento da entrega. Nesta execução, parte do código avançou antes da atualização das histórias; isso deixou a visão do Jira defasada. As fases pequenas com PR e CI tornaram a entrega revisável, mas não substituem a colaboração, as Dailies e a inspeção de uma squad durante sprints reais.')
 h('Pendências para concluir a entrega acadêmica')
-for s in ['Publicar a aplicação no ambiente gratuito escolhido e registrar a URL verificada na capa.','Confirmar acesso do professor ao Jira e ao repositório.','Obter revisão humana independente e validação do PO, caso a avaliação exija essas evidências.','A squad registrar suas cerimônias e validar as estimativas; não há histórico de duas semanas nesta execução.','Cada integrante enviar o mesmo PDF no portal da atividade com seu próprio acesso e guardar o protocolo. Nenhum envio acadêmico foi realizado pelo assistente.']:bullet(s)
+for s in ['Corrigir a falha reproduzida entre cancelamento e reagendamento simultâneos e acrescentar teste de regressão.','Publicar a aplicação no ambiente gratuito escolhido e registrar a URL verificada na capa.','Confirmar acesso do professor ao Jira e ao repositório.','Obter revisão humana independente e validação do PO, caso a avaliação exija essas evidências.','A squad registrar suas cerimônias e validar as estimativas; os registros futuros só devem ser incluídos depois de realizados.','Cada integrante enviar o mesmo PDF no portal da atividade com seu próprio acesso e guardar o protocolo. Nenhum envio acadêmico foi realizado pelo assistente.']:bullet(s)
 
 section('Anexo A - Evidências da aplicação')
 p('As imagens abaixo foram capturadas da aplicação local em 11/11/2026 com dados fictícios. Complementam o texto; não representam uma publicação em produção nem telas do Jira.')
@@ -201,7 +202,7 @@ for s in ['Enunciado fornecido: Projeto Semestral - TimeSlot, três páginas, da
 def furniture(canvas,doc):
     w,h=doc.pagesize;canvas.saveState();canvas.setStrokeColor(LINE);canvas.line(48,h-35,w-48,h-35)
     canvas.setFont('Arial',8);canvas.setFillColor(MUTED);canvas.drawString(48,h-27,'fadeUp / TimeSlot');canvas.drawRightString(w-48,h-27,'Engenharia de Software III')
-    canvas.line(48,38,w-48,38);canvas.drawString(48,25,'Registro de 11/11/2026 | planejamento de duas semanas');canvas.drawRightString(w-48,25,str(doc.page));canvas.restoreState()
+    canvas.line(48,38,w-48,38);canvas.drawString(48,25,'Registro de 11/11/2026 | referência: 11 a 13/11/2026');canvas.drawRightString(w-48,25,str(doc.page));canvas.restoreState()
 
 doc=SimpleDocTemplate(str(OUT/'fadeup-relatorio-final.pdf'),pagesize=(595.28,841.89),leftMargin=50,rightMargin=50,topMargin=57,bottomMargin=53,title='fadeUp - Projeto Semestral TimeSlot',author='Squad fadeUp',subject='MVP de agendamento e evidências de execução')
 doc.build(story,onFirstPage=furniture,onLaterPages=furniture)
