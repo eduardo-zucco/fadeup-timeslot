@@ -1,0 +1,15 @@
+{
+  "name": "fadeup-timeslot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node scripts/server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node --check lib/api.mjs && node --check public/app.js && node --check scripts/server.mjs"
+  }
+}
