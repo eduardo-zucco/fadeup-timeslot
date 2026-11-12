@@ -1,0 +1,17 @@
+{
+  "capturedAt": "2026-11-12",
+  "repository": "eduardo-zucco/fadeup-timeslot",
+  "pullRequest": 13,
+  "commit": "215aa7d0475a25662d2db5157f0259a5022285ef",
+  "workflowRun": 43268209939,
+  "conclusion": "success",
+  "tests": 35,
+  "syntaxModules": 48,
+  "artifacts": [
+    {"id": 13965874260, "name": "fadeup-test-results", "expired": false},
+    {"id": 13965639521, "name": "fadeup-worker", "expired": false}
+  ],
+  "review": "Revisão técnica assistida por Codex; não é aprovação independente da squad.",
+  "pdfUpdated": false,
+  "deployed": false
+}
