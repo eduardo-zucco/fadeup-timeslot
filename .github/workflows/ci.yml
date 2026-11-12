@@ -36,5 +36,4 @@ jobs:
           name: fadeup-aplicacao
           path: .local/compilado/
           include-hidden-files: true
-          include-hidden-files: true
           retention-days: 14
