@@ -2,7 +2,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { readFileSync } from 'node:fs';
 // Small D1-compatible adapter: the same API runs locally on SQLite and on Sites D1.
 export class SQLite {
- constructor(file=':memory:'){this.raw=new DatabaseSync(file);this.raw.exec(readFileSync(new URL('../db/schema.sql',import.meta.url),'utf8'));}
+ constructor(file=':memory:'){this.raw=new DatabaseSync(file);this.raw.exec(readFileSync(new URL('../../../db/schema.sql',import.meta.url),'utf8'));}
  prepare(sql){
   const stmt=this.raw.prepare(sql);
   const bind=(...args)=>({

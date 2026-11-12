@@ -1,9 +1,9 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {SQLite} from '../lib/sqlite.mjs';
-import {createApi} from '../lib/api.mjs';
+import {SQLite} from '../src/server/infrastructure/sqlite.mjs';
+import {createApi} from '../src/server/http/api.mjs';
 const tomorrow=new Date(Date.now()+86400000).toISOString().slice(0,10);
-function setup(t){const db=new SQLite();t.after(()=>db.close());const api=createApi({DB:db,ADMIN_EMAIL:'owner@test.invalid'});return {db,request:async(path,method='GET',body,token,admin=false)=>{const headers={'Content-Type':'application/json'};if(token)headers['X-Booking-Token']=token;if(admin)headers['oai-authenticated-user-email']='owner@test.invalid';return api(new Request('http://localhost/api/'+path,{method,headers,body:body?JSON.stringify(body):undefined}));}};}
+function setup(t){const db=new SQLite();t.after(()=>db.close());const api=createApi({DB:db,ADMIN_KEY:'chave-administrativa-para-teste-123456789'});return {db,request:async(path,method='GET',body,token,admin=false)=>{const headers={'Content-Type':'application/json'};if(token)headers['X-Booking-Token']=token;if(admin)headers['X-Admin-Key']='chave-administrativa-para-teste-123456789';return api(new Request('http://localhost/api/'+path,{method,headers,body:body?JSON.stringify(body):undefined}));}};}
 const body={name:'Cliente teste',phone:'14999999999',consent:true,service:'corte',date:tomorrow,start:540};
 async function ready(request){await request('admin/config','PUT',{name:'Teste',open:540,close:1080,interval:0,days:[0,1,2,3,4,5,6],services:[{id:'corte',name:'Corte',price:4000,duration:30}]},null,true);}
 test('reserva persiste no SQLite e não expõe dados sem chave',async t=>{const {request}=setup(t);await ready(request);const r=await request('bookings','POST',body);assert.equal(r.status,201);const b=await r.json();assert.equal((await request('bookings/'+b.id)).status,404);const mine=await (await request('bookings/'+b.id,'GET',null,b.token)).json();assert.equal(mine.name,body.name);assert(!mine.token);});

@@ -4,7 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { readFileSync, mkdtempSync, unlinkSync, rmdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { SQLite } from '../lib/sqlite.mjs';
+import { SQLite } from '../src/server/infrastructure/sqlite.mjs';
 
 test('migração de consistência preserva reservas existentes e protege ocupação após reabrir banco', t => {
   const dir = mkdtempSync(join(tmpdir(), 'fadeup-migration-'));

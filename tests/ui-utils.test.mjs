@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { canManage, mergeReservationKeys, shiftDate } from '../public/ui-utils.js';
+import { canManage, mergeReservationKeys, shiftDate } from '../public/assets/js/shared/format.js';
 
 test('ações da reserva respeitam início em São Paulo e status cancelado', () => {
   const booking = { date: '2026-11-13', start: 540, status: 'confirmed' };
