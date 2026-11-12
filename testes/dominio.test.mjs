@@ -1,0 +1,14 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {available,dateOK,cells} from '../aplicacao/servidor/domain/scheduling.mjs';
+import {defaults,validConfig} from '../aplicacao/servidor/domain/config.mjs';
+import {customer} from '../aplicacao/servidor/domain/customer.mjs';
+const now=new Date('2026-11-11T12:00:00-03:00');
+test('serviço termina dentro do expediente',()=>{const s=available('2026-11-12',60,defaults,[],now);assert.equal(s.at(-1),1020);assert(!s.includes(1035));});
+test('colisões consideram toda a duração',()=>{const s=available('2026-11-12',60,defaults,[600,615],now);assert(!s.includes(570));assert(!s.includes(600));assert(s.includes(630));});
+test('dias fechados e datas passadas não oferecem horários',()=>{assert.deepEqual(available('2026-11-15',30,defaults,[],now),[]);assert.deepEqual(available('2026-11-10',30,defaults,[],now),[]);});
+test('horário de hoje considera fuso de São Paulo',()=>{const s=available('2026-11-11',30,defaults,[],now);assert.equal(s[0],735);});
+test('intervalo também ocupa a agenda',()=>{assert.deepEqual(cells(540,30,15),[540,555,570]);const s=available('2026-11-12',30,{...defaults,interval:15},[570],now);assert(!s.includes(540));});
+test('datas inválidas e além do horizonte são rejeitadas',()=>{assert(!dateOK('2026-02-30',now));assert(!dateOK('2027-12-01',now));assert(!dateOK(null,now));});
+test('nome telefone e consentimento são obrigatórios',()=>{assert.throws(()=>customer({name:'A',phone:'123',consent:true}));assert.throws(()=>customer({name:'Cliente',phone:'14999999999'}));assert.equal(customer({name:' Cliente ',phone:'(14) 99999-9999',consent:true}).name,'Cliente');});
+test('configuração rejeita duplicidade e duração inválida',()=>{assert(validConfig(defaults));assert(!validConfig({...defaults,open:541}));assert(!validConfig({...defaults,services:[...defaults.services,defaults.services[0]]}));});

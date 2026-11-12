@@ -1,8 +1,8 @@
-node_modules
 .git
-data
-evidence
-output
+.github
+.local
+node_modules
+documentacao
+testes
 .env*
-.dev.vars*
-dist
+*.pem

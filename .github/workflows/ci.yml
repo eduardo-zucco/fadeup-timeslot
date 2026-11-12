@@ -26,13 +26,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: fadeup-test-results
-          path: test-results/
+          path: .local/relatorios/
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
       - name: Salvar build
         uses: actions/upload-artifact@v4
         with:
-          name: fadeup-worker
-          path: dist/
+          name: fadeup-aplicacao
+          path: .local/compilado/
+          include-hidden-files: true
           include-hidden-files: true
           retention-days: 14
