@@ -2,9 +2,8 @@ FROM node:24-alpine
 WORKDIR /app
 ENV NODE_ENV=production HOST=0.0.0.0 DB_FILE=/data/fadeup.sqlite
 COPY package.json ./
-COPY src ./src
-COPY scripts/server.mjs ./scripts/server.mjs
-COPY public ./public
-COPY db ./db
+COPY aplicacao ./aplicacao
+COPY ferramentas/servidor.mjs ./ferramentas/servidor.mjs
+COPY banco ./banco
 EXPOSE 3000
-CMD ["node", "scripts/server.mjs"]
+CMD ["node", "ferramentas/servidor.mjs"]
