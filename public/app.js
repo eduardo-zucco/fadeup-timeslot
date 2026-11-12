@@ -181,14 +181,65 @@ function confirmation(booking) {
   $('#history').onclick = () => chooseView('history');
   focusTitle();
 }
-async function renderHistory(){
- app.innerHTML='<h2 id="section-title">Seus agendamentos</h2><p class="sub">Consultando suas reservas…</p>';
- const rows=await Promise.all(saved.map(async s=>{try{return {...await api('bookings/'+s.id,{headers:{'X-Booking-Token':s.token}}),token:s.token};}catch{return null;}}));
- app.innerHTML=`<h2 id="section-title">Seus agendamentos</h2><p class="sub">Reservas salvas neste navegador. Em outro aparelho, abra o link de gerenciamento recebido na confirmação.</p>`+(rows.filter(Boolean).length?rows.filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date)||b.start-a.start).map(b=>`<article class="booking-row"><div><span class="status">${b.status==='confirmed'?'Confirmado':'Cancelado'}</span><h3>${esc(b.service)}</h3><p>${dateLabel(b.date)} · ${clock(b.start)} · ${esc(b.name)}</p></div><div class="row-actions">${b.status==='confirmed'?`<button class="secondary" data-edit="${b.id}">Reagendar</button><button class="secondary danger" data-cancel="${b.id}">Cancelar</button>`:''}</div></article>`).join(''):'<p class="empty">Você ainda não tem reservas salvas. Seu próximo horário começa por aqui.</p>');
- app.querySelectorAll('[data-cancel]').forEach(b=>b.onclick=()=>confirmAction('Cancelar este atendimento?',async()=>{const r=rows.find(x=>x?.id===b.dataset.cancel);await api('bookings/'+r.id,{method:'DELETE',headers:{'X-Booking-Token':r.token}});await renderHistory();notice('Reserva cancelada. O horário foi liberado.',true);}));
- app.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{const r=rows.find(x=>x?.id===b.dataset.edit);state.editing=r;state.service=state.config.services.find(s=>s.name===r.service&&s.duration===r.duration);if(!state.service){notice('Esse serviço foi alterado. Fale com a barbearia para reagendar.');return;}state.step=2;state.date=today();state.start=null;renderBook();});
+async function renderHistory() {
+  const current = ++revision;
+  const group = state.historyGroup || 'upcoming';
+  app.innerHTML = '<div class="content-panel"><h2 id="section-title">Meus agendamentos</h2><div class="loading-state"><span class="spinner" aria-hidden="true"></span>Consultando reservas salvas…</div></div>';
+  const results = await Promise.allSettled(saved.map(async key => ({ ...await api('bookings/' + key.id, { headers: { 'X-Booking-Token': key.token } }), token: key.token })));
+  if (current !== revision || state.view !== 'history') return;
+  const rows = results.filter(result => result.status === 'fulfilled').map(result => result.value);
+  const failures = results.filter(result => result.status === 'rejected').length;
+  const groups = {
+    upcoming: rows.filter(booking => canManage(booking)).sort((a, b) => a.date.localeCompare(b.date) || a.start - b.start),
+    past: rows.filter(booking => booking.status === 'confirmed' && !canManage(booking)).sort((a, b) => b.date.localeCompare(a.date) || b.start - a.start),
+    cancelled: rows.filter(booking => booking.status === 'cancelled').sort((a, b) => b.date.localeCompare(a.date) || b.start - a.start)
+  };
+  app.innerHTML = `<section class="content-panel"><div class="section-heading"><div><h2 id="section-title">Meus agendamentos</h2><p class="sub">Reservas salvas neste navegador. Em outro aparelho, abra o link de gerenciamento.</p></div><button class="primary" id="book-another">Agendar novo →</button></div>${failures ? `<div class="alert"><span>${failures} reserva(s) não puderam ser consultadas. Sua chave continua salva neste navegador.</span><button class="text-button" id="retry-history">Tentar novamente</button></div>` : ''}<div class="tabs" aria-label="Filtrar reservas">${[['upcoming', 'Próximos'], ['past', 'Passados'], ['cancelled', 'Cancelados']].map(([key, label]) => `<button data-group="${key}" aria-pressed="${group === key}" class="${group === key ? 'selected' : ''}">${label} <span>${groups[key].length}</span></button>`).join('')}</div>${groups[group].length ? groups[group].map(booking => `<article class="booking-row"><div class="booking-date"><strong>${new Date(booking.date + 'T12:00:00Z').getUTCDate()}</strong><span>${esc(new Date(booking.date + 'T12:00:00Z').toLocaleDateString('pt-BR', { month: 'short', timeZone: 'UTC' }))}</span></div><div class="booking-info"><span class="status ${group === 'upcoming' ? 'confirmed' : ''}">${group === 'upcoming' ? 'Confirmado' : group === 'past' ? 'Passado' : 'Cancelado'}</span><h3>${esc(booking.service)}</h3><p>${esc(dateLabel(booking.date))} · ${clock(booking.start)} · ${booking.duration} min · ${money(booking.price)}</p><p>${esc(booking.name)}</p></div><div class="row-actions">${canManage(booking) ? `<button class="secondary" data-edit="${booking.id}">Reagendar</button><button class="secondary danger" data-cancel="${booking.id}">Cancelar</button>` : ''}<button class="text-button" data-link="${booking.id}">Link da reserva</button></div></article>`).join('') : `<div class="empty-state"><strong>${group === 'upcoming' ? 'Nenhum horário marcado por aqui.' : group === 'past' ? 'Ainda não há reservas passadas.' : 'Nenhuma reserva cancelada.'}</strong>${group === 'upcoming' ? 'Que tal reservar seu próximo atendimento?' : 'Seu histórico aparece nesta aba.'}</div>`}<div id="reservation-link"></div><p class="small history-note">“Passado” indica que o horário já ocorreu; não confirma presença. Para acessar uma reserva em outro aparelho, use o link salvo na confirmação.</p></section>`;
+  $('#book-another').onclick = () => { state.service = null; chooseView('book'); };
+  if (failures) $('#retry-history').onclick = () => task(renderHistory);
+  app.querySelectorAll('[data-group]').forEach(button => button.onclick = () => { state.historyGroup = button.dataset.group; task(renderHistory); });
+  app.querySelectorAll('[data-edit]').forEach(button => button.onclick = () => {
+    state.editing = rows.find(booking => booking.id === button.dataset.edit);
+    state.step = 2; state.date = state.editing.date; state.start = null;
+    renderBook(true);
+  });
+  app.querySelectorAll('[data-cancel]').forEach(button => button.onclick = () => {
+    const booking = rows.find(item => item.id === button.dataset.cancel);
+    confirmAction(`Cancelar ${booking.service} de ${dateLabel(booking.date)} às ${clock(booking.start)}?`, async () => {
+      await api('bookings/' + booking.id, { method: 'DELETE', headers: { 'X-Booking-Token': booking.token } });
+      await renderHistory(); notice('Reserva cancelada. O horário foi liberado.', true);
+    });
+  });
+  app.querySelectorAll('[data-link]').forEach(button => button.onclick = () => {
+    const booking = rows.find(item => item.id === button.dataset.link);
+    $('#reservation-link').innerHTML = `<div class="link-card"><label class="field">Link de gerenciamento<span class="hint">Este link dá acesso à reserva. Compartilhe apenas com quem poderá gerenciá-la.</span><span class="link-field"><input id="history-link" readonly value="${esc(managementLink(booking))}"><button class="secondary" id="copy-history">Copiar</button></span></label></div>`;
+    $('#copy-history').onclick = () => copyLink(booking, $('#history-link'));
+    $('#history-link').focus();
+  });
 }
-function confirmAction(text,fn){const dialog=document.createElement('dialog');dialog.innerHTML=`<h2>${esc(text)}</h2><p class="sub">Esta ação libera o horário para outra pessoa.</p><div class="actions"><button class="secondary" id="keep">Manter reserva</button><button class="primary" id="confirm">Confirmar cancelamento</button></div>`;document.body.append(dialog);dialog.showModal();dialog.querySelector('#keep').onclick=()=>{dialog.close();dialog.remove();};dialog.querySelector('#confirm').onclick=async()=>{dialog.close();dialog.remove();await task(fn);};}
+function confirmAction(text, fn) {
+  const dialog = document.createElement('dialog');
+  dialog.setAttribute('aria-labelledby', 'dialog-title');
+  dialog.setAttribute('aria-describedby', 'dialog-description');
+  dialog.innerHTML = `<h2 id="dialog-title">${esc(text)}</h2><p class="sub" id="dialog-description">Esta ação libera o horário para outra pessoa. O registro permanece no histórico.</p><div id="dialog-error" role="alert"></div><div class="actions"><button class="secondary" id="keep" autofocus>Manter reserva</button><button class="primary" id="confirm">Confirmar cancelamento</button></div>`;
+  document.body.append(dialog);
+  dialog.onclose = () => dialog.remove();
+  dialog.showModal();
+  dialog.querySelector('#keep').onclick = () => dialog.close();
+  dialog.querySelector('#confirm').onclick = async event => {
+    const button = event.currentTarget;
+    if (button.disabled) return;
+    button.disabled = true;
+    dialog.querySelector('#keep').disabled = true;
+    dialog.oncancel = event => event.preventDefault();
+    try { await fn(); dialog.close(); }
+    catch (error) { dialog.querySelector('#dialog-error').textContent = error.message; }
+    finally {
+      if (dialog.isConnected) { button.disabled = false; dialog.querySelector('#keep').disabled = false; dialog.oncancel = null; }
+    }
+  };
+}
+
 function renderLogin(){
  app.innerHTML='<h2 id="section-title">Acesso da barbearia</h2><p class="sub">Informe a chave administrativa configurada no servidor.</p><form id="login"><label class="field">Chave administrativa<input name="key" type="password" minlength="24" autocomplete="off" required></label><div class="actions"><button class="primary" type="submit">Entrar no painel</button></div></form>';
  $('#login').onsubmit=e=>{e.preventDefault();task(async()=>{adminKey=new FormData(e.target).get('key');const c=await api('config');if(!c.admin){adminKey='';throw new Error('Chave inválida.');}try{sessionStorage.setItem('fadeup-admin',adminKey);}catch{}state.config=c;await renderAdmin();});};
