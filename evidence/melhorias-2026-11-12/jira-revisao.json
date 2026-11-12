@@ -1,0 +1,206 @@
+{
+  "capturedAt": "2026-11-12T15:55:32.199Z",
+  "board": {
+    "id": 1,
+    "name": "SCRUM board",
+    "type": "simple",
+    "filter": {
+      "id": "10000"
+    },
+    "location": {
+      "type": "project",
+      "id": "10000",
+      "key": "SCRUM",
+      "name": "My Software Team"
+    },
+    "columnConfig": {
+      "constraintType": "none",
+      "columns": [
+        {
+          "name": "To Do",
+          "statuses": [
+            {
+              "id": "10000",
+              "name": "Tarefas pendentes",
+              "category": "new"
+            }
+          ]
+        },
+        {
+          "name": "In Progress",
+          "statuses": [
+            {
+              "id": "3",
+              "name": "Em andamento",
+              "category": "indeterminate"
+            }
+          ]
+        },
+        {
+          "name": "In Review",
+          "statuses": [
+            {
+              "id": "10001",
+              "name": "Em análise",
+              "category": "indeterminate"
+            }
+          ]
+        },
+        {
+          "name": "Done",
+          "statuses": [
+            {
+              "id": "10002",
+              "name": "Concluído",
+              "category": "done"
+            }
+          ]
+        }
+      ]
+    },
+    "estimation": {
+      "type": "field",
+      "field": {
+        "fieldId": "customfield_10016",
+        "displayName": "Story point estimate"
+      }
+    },
+    "ranking": {
+      "rankCustomFieldId": 10019
+    }
+  },
+  "issues": [
+    {
+      "key": "SCRUM-22",
+      "summary": "Corrigir concorrência entre cancelar e reagendar",
+      "status": "Concluído",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-5",
+      "versions": [
+        "fadeUp v1.0 - MVP"
+      ],
+      "points": 3,
+      "sprints": [
+        {
+          "id": 4,
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
+          "startDate": "2026-11-11T20:11:45.175Z",
+          "endDate": "2026-11-13T21:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-23",
+      "summary": "Auditar validações da API e agenda histórica",
+      "status": "Concluído",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "versions": [
+        "fadeUp v1.0 - MVP"
+      ],
+      "points": 2,
+      "sprints": [
+        {
+          "id": 4,
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
+          "startDate": "2026-11-11T20:11:45.175Z",
+          "endDate": "2026-11-13T21:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-24",
+      "summary": "US-014 - Agendar com resumo e dados preservados",
+      "status": "Concluído",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-5",
+      "versions": [
+        "fadeUp v1.0 - MVP"
+      ],
+      "points": 3,
+      "sprints": [
+        {
+          "id": 4,
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
+          "startDate": "2026-11-11T20:11:45.175Z",
+          "endDate": "2026-11-13T21:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-25",
+      "summary": "US-015 - Gerenciar reservas com clareza",
+      "status": "Concluído",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-7",
+      "versions": [
+        "fadeUp v1.0 - MVP"
+      ],
+      "points": 2,
+      "sprints": [
+        {
+          "id": 4,
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
+          "startDate": "2026-11-11T20:11:45.175Z",
+          "endDate": "2026-11-13T21:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-26",
+      "summary": "US-016 - Melhorar a operação da agenda",
+      "status": "Concluído",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-6",
+      "versions": [
+        "fadeUp v1.0 - MVP"
+      ],
+      "points": 3,
+      "sprints": [
+        {
+          "id": 4,
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
+          "startDate": "2026-11-11T20:11:45.175Z",
+          "endDate": "2026-11-13T21:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "key": "SCRUM-27",
+      "summary": "Concluir auditoria de melhorias e fortalecer CI",
+      "status": "Em análise",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "versions": [
+        "fadeUp v1.0 - MVP"
+      ],
+      "points": 2,
+      "sprints": [
+        {
+          "id": 4,
+          "name": "fadeUp - Ciclo 2 - Operação e entrega",
+          "state": "active",
+          "boardId": 1,
+          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
+          "startDate": "2026-11-11T20:11:45.175Z",
+          "endDate": "2026-11-13T21:00:00.000Z"
+        }
+      ]
+    }
+  ]
+}

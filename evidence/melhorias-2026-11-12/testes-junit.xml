@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="reserva persiste no SQLite e não expõe dados sem chave" time="0.187609" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="reserva concorrente aceita uma única ocupação" time="0.011504" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="cancelamento libera horários e mantém histórico" time="0.008508" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="reagendamento em conflito mantém reserva anterior" time="0.010204" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="painel e configurações exigem operador" time="0.002244" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="bloqueio impede reserva e pode ser removido pelo operador" time="0.009511" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="validação rejeita dados inválidos e origem externa" time="0.005834" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="batch faz rollback completo quando a chave de ocupação conflita" time="0.002943" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="API rejeita mutação iniciada por outra origem" time="0.003586" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="chave administrativa protege o painel fora do Sites" time="0.004035" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="cancelamento concorrente não deixa ocupação fantasma: reagendar-cancelar" time="0.009080" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="cancelamento concorrente não deixa ocupação fantasma: cancelar-reagendar" time="0.007222" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="agenda permite consultar passado sem permitir reservar no passado" time="0.003150" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="disponibilidade da reserva preserva a duração original e libera seu próprio horário" time="0.005525" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="rotas e períodos de disponibilidade são validados" time="0.006461" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="validação informa campos e diferencia erro interno de dados inválidos" time="0.006026" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\api.test.mjs"/>
+	<testcase name="serviço termina dentro do expediente" time="0.052033" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="colisões consideram toda a duração" time="0.002994" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="dias fechados e datas passadas não oferecem horários" time="0.004977" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="horário de hoje considera fuso de São Paulo" time="0.001109" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="intervalo também ocupa a agenda" time="0.001789" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="datas inválidas e além do horizonte são rejeitadas" time="0.000799" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="nome telefone e consentimento são obrigatórios" time="0.000960" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="configuração rejeita duplicidade e duração inválida" time="0.000905" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\domain.test.mjs"/>
+	<testcase name="servidor público descarta identidade falsa e aceita proxy HTTPS" time="0.576868" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\http.test.mjs"/>
+	<testcase name="migração de consistência preserva reservas existentes e protege ocupação após reabrir banco" time="0.115893" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\migration.test.mjs"/>
+	<testcase name="ações da reserva respeitam início em São Paulo e status cancelado" time="0.003134" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\ui-utils.test.mjs"/>
+	<testcase name="chaves importadas atualizam reserva sem duplicar nem guardar dados pessoais" time="0.003296" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\ui-utils.test.mjs"/>
+	<testcase name="atalhos e limites de data atravessam mês e ano sem mudar o dia pelo fuso" time="0.002584" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\ui-utils.test.mjs"/>
+	<testcase name="artefato Worker serve a interface e a mesma API SQLite" time="0.220527" classname="test" file="C:\arquivos_edu\projeto-ferdinando\fadeup\tests\worker.test.mjs"/>
+	<!-- tests 30 -->
+	<!-- suites 0 -->
+	<!-- pass 30 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 827.2092 -->
+</testsuites>
