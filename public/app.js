@@ -72,7 +72,7 @@ const stepper = () => `<ol class="steps" aria-label="Etapas do agendamento">${['
 function currentService() { return state.editing ? { name: state.editing.service, duration: state.editing.duration, price: state.editing.price } : state.service; }
 function summary() {
   const service = currentService();
-  return `<aside class="summary-panel" aria-label="Resumo do agendamento"><p class="summary-label">Sua reserva</p>${service ? `<h3 class="summary-service">${esc(service.name)}</h3><span class="summary-duration">${service.duration} minutos de atendimento</span><div class="summary-date">${state.step >= 2 ? esc(dateLabel(state.date)) : 'Escolha a data na próxima etapa'}<br><strong>${state.start !== null ? clock(state.start) : 'Horário a definir'}</strong></div><div class="summary-total"><span>Total do serviço</span><strong>${money(service.price)}</strong></div>` : '<p class="summary-placeholder">Escolha um serviço para começar.<br>O seu resumo aparece aqui.</p>'}<p class="summary-note"><strong>Pagamento no estabelecimento.</strong><br>Guarde o link da confirmação para gerenciar sua reserva.</p></aside>`;
+  return `<aside class="summary-panel" aria-label="Resumo do agendamento"><p class="summary-label">Sua reserva</p>${service ? `<h3 class="summary-service">${esc(service.name)}</h3><span class="summary-duration">${service.duration} minutos de atendimento</span><div class="summary-date">${state.step >= 2 ? esc(dateLabel(state.date)) : 'Escolha a data na próxima etapa'}<br><strong>${state.start !== null ? clock(state.start) : 'Horário a definir'}</strong></div><div class="summary-total"><span>Total do serviço</span><strong>${money(service.price)}</strong></div>` : '<p class="summary-placeholder">Escolha um serviço para começar.<br>O seu resumo aparece aqui.</p>'}<p class="summary-note"><strong>Pagamento no estabelecimento.</strong><br>${state.manual ? 'O atendimento será gerenciado pelo painel da barbearia.' : 'Guarde o link da confirmação para gerenciar sua reserva.'}</p></aside>`;
 }
 function updateSummary() { const old = $('.summary-panel'); if (old) old.outerHTML = summary(); }
 function shell(content) { app.removeAttribute('aria-busy'); app.innerHTML = `<div class="booking-layout"><section class="flow-panel">${stepper()}${content}</section>${summary()}</div>`; heading(); }
@@ -107,7 +107,7 @@ function renderBook(focus = false) {
     task(loadSlots);
   } else if (state.step === 3) {
     const draft = state.draft;
-    shell(`<h2 id="section-title">Só faltam seus dados.</h2><p class="sub">Confira seu resumo antes de confirmar a reserva.</p><form id="customer"><label class="field">Seu nome<input name="name" autocomplete="name" minlength="2" maxlength="80" required value="${esc(draft.name)}" placeholder="Como podemos chamar você?"><span class="field-error" id="error-name"></span></label><label class="field">WhatsApp com DDD<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="22" pattern="[+()0-9 .\-]{10,22}" value="${esc(draft.phone)}" placeholder="(14) 99999-9999"><span class="field-error" id="error-phone"></span></label><label class="check"><input name="consent" type="checkbox" required ${draft.consent ? 'checked' : ''}><span>Autorizo o uso do nome e telefone para administrar este agendamento. Os dados ficam disponíveis ao responsável da barbearia.</span></label><span class="field-error" id="error-consent"></span><p class="small">A confirmação aparece aqui. O envio automático pelo WhatsApp ainda não está disponível.</p><div class="actions"><button type="button" class="text-button" id="back">← Alterar horário</button><button type="submit" class="primary">Confirmar ${money(service.price)} →</button></div></form>`);
+    shell(`<h2 id="section-title">Só faltam seus dados.</h2><p class="sub">Confira seu resumo antes de confirmar a reserva.</p><form id="customer"><label class="field">Seu nome<input name="name" autocomplete="name" minlength="2" maxlength="80" required value="${esc(draft.name)}" placeholder="Como podemos chamar você?"><span class="field-error" id="error-name"></span></label><label class="field">WhatsApp com DDD<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="22" pattern="[+()0-9 .\-]{10,22}" value="${esc(draft.phone)}" placeholder="(14) 99999-9999"><span class="field-error" id="error-phone"></span></label><label class="check"><input name="consent" type="checkbox" required ${draft.consent ? 'checked' : ''}><span>${state.manual ? 'O cliente autorizou o uso do nome e telefone para administrar este agendamento.' : 'Autorizo o uso do nome e telefone para administrar este agendamento.'} Os dados ficam disponíveis ao responsável da barbearia.</span></label><span class="field-error" id="error-consent"></span><p class="small">A confirmação aparece aqui. O envio automático pelo WhatsApp ainda não está disponível.</p><div class="actions"><button type="button" class="text-button" id="back">← Alterar horário</button><button type="submit" class="primary">Confirmar ${money(service.price)} →</button></div></form>`);
     const form = $('#customer');
     const saveDraft = () => { state.draft = { name: form.elements.name.value, phone: form.elements.phone.value, consent: form.elements.consent.checked }; };
     form.oninput = saveDraft;
@@ -240,20 +240,145 @@ function confirmAction(text, fn) {
   };
 }
 
-function renderLogin(){
- app.innerHTML='<h2 id="section-title">Acesso da barbearia</h2><p class="sub">Informe a chave administrativa configurada no servidor.</p><form id="login"><label class="field">Chave administrativa<input name="key" type="password" minlength="24" autocomplete="off" required></label><div class="actions"><button class="primary" type="submit">Entrar no painel</button></div></form>';
- $('#login').onsubmit=e=>{e.preventDefault();task(async()=>{adminKey=new FormData(e.target).get('key');const c=await api('config');if(!c.admin){adminKey='';throw new Error('Chave inválida.');}try{sessionStorage.setItem('fadeup-admin',adminKey);}catch{}state.config=c;await renderAdmin();});};
+function renderLogin() {
+  app.innerHTML = '<section class="content-panel login-panel"><h2 id="section-title">Acesso da barbearia</h2><p class="sub">Use a chave administrativa do negócio para acessar a agenda e as configurações.</p><form id="login"><label class="field">Chave administrativa<input name="key" type="password" minlength="24" autocomplete="off" required></label><div class="actions"><button class="primary" type="submit">Entrar no painel</button></div></form></section>';
+  $('#login').onsubmit = event => {
+    event.preventDefault();
+    const form = event.target;
+    submit(form.querySelector('[type=submit]'), async () => {
+      const previousKey = adminKey;
+      adminKey = form.elements.key.value;
+      try {
+        const config = await api('config');
+        if (!config.admin) throw new Error('Chave inválida. Confira e tente novamente.');
+        try { sessionStorage.setItem('fadeup-admin', adminKey); } catch {}
+        state.config = config;
+        await renderAdmin();
+      } catch (error) { adminKey = previousKey; throw error; }
+    });
+  };
 }
-async function renderAdmin(){
- if(!state.config.admin){renderLogin();return;}
+async function renderAdmin() {
+  if (!state.config.admin) { renderLogin(); return; }
+  const current = ++revision;
+  const end = state.week ? shiftDate(state.agendaDate, 6) : state.agendaDate;
+  app.innerHTML = '<section class="content-panel"><h2 id="section-title">Agenda da barbearia</h2><div class="loading-state"><span class="spinner" aria-hidden="true"></span>Consultando agenda…</div></section>';
+  let data;
+  try { data = await api(`admin/agenda?date=${state.agendaDate}&end=${end}`); }
+  catch (error) {
+    if (current !== revision || state.view !== 'admin') return;
+    app.innerHTML = `<section class="content-panel"><h2 id="section-title">Agenda indisponível</h2><p class="sub">${esc(error.message)}</p><button id="retry-agenda" class="primary">Tentar novamente</button></section>`;
+    $('#retry-agenda').onclick = () => task(renderAdmin);
+    return;
+  }
+  if (current !== revision || state.view !== 'admin') return;
+  const active = data.records.filter(booking => booking.status === 'confirmed');
+  const appointments = active.filter(booking => booking.kind === 'appointment');
+  const blocks = active.filter(booking => booking.kind === 'block');
+  const filter = state.agendaFilter || 'active';
+  const records = data.records.filter(booking => filter === 'all' || (filter === 'cancelled' ? booking.status === 'cancelled' : booking.status === 'confirmed')).sort((a, b) => a.date.localeCompare(b.date) || a.start - b.start);
+  const dates = [...new Set(records.map(booking => booking.date))];
+  app.innerHTML = `<section class="content-panel"><div class="section-heading"><div><h2 id="section-title">Agenda da barbearia</h2><p class="sub">${esc(dateLabel(state.agendaDate))}${state.week ? ' a ' + esc(dateLabel(end)) : ''} · Horários de Brasília</p></div><div class="row-actions"><button class="secondary" id="config">Configurações</button>${adminKey ? '<button class="text-button" id="logout">Sair</button>' : ''}</div></div><div class="agenda-toolbar"><div class="calendar-nav"><button class="secondary" id="prev" aria-label="Período anterior">←</button><button class="secondary" id="today">Hoje</button><button class="secondary" id="following" aria-label="Próximo período">→</button></div><label class="field">Data inicial<input id="agenda-date" type="date" value="${state.agendaDate}" required></label><label class="field">Visualização<select id="period"><option value="day">Dia</option><option value="week" ${state.week ? 'selected' : ''}>Semana</option></select></label><div class="row-actions agenda-add"><button class="secondary" id="block">Bloquear horário</button><button class="primary" id="manual">＋ Novo encaixe</button></div></div><div class="agenda-stats"><div><span>Atendimentos confirmados</span><strong>${appointments.length}</strong></div><div><span>Intervalos bloqueados</span><strong>${blocks.length}</strong></div><div><span>Valor previsto</span><strong>${money(appointments.reduce((total, booking) => total + booking.price, 0))}</strong></div></div><div class="list-heading"><h3>${state.week ? 'Atendimentos da semana' : 'Atendimentos do dia'}</h3><label class="field">Exibir<select id="agenda-filter"><option value="active">Ativos</option><option value="all" ${filter === 'all' ? 'selected' : ''}>Todos</option><option value="cancelled" ${filter === 'cancelled' ? 'selected' : ''}>Cancelados</option></select></label></div>${records.length ? dates.map(date => `<section class="agenda-day" aria-label="${esc(dateLabel(date))}">${state.week ? `<h3 class="day-label">${esc(dateLabel(date))}</h3>` : ''}${records.filter(booking => booking.date === date).map(booking => `<article class="booking-row ${booking.kind === 'block' ? 'blocked-row' : ''}"><div class="time-badge"><strong>${clock(booking.start)}</strong><span>${clock(booking.start + booking.duration)}</span></div><div class="booking-info"><span class="status ${booking.status === 'confirmed' && booking.kind !== 'block' ? 'confirmed' : ''}">${booking.status !== 'confirmed' ? 'Cancelado' : booking.kind === 'block' ? 'Bloqueio' : 'Confirmado'}</span><h3>${esc(booking.name)}</h3><p>${esc(booking.service)} · ${booking.duration} min${booking.phone ? ' · ' + esc(booking.phone) : ''}</p></div><div class="row-actions">${booking.kind === 'appointment' ? `<span class="booking-value">${money(booking.price)}</span>` : ''}${canManage(booking) ? `<button class="secondary danger" data-admin-cancel="${booking.id}">${booking.kind === 'block' ? 'Liberar' : 'Cancelar'}</button>` : ''}</div></article>`).join('')}</section>`).join('') : `<div class="empty-state"><strong>${filter === 'cancelled' ? 'Nenhum cancelamento neste período.' : 'Nenhum item para mostrar neste período.'}</strong>Use a navegação para consultar outro dia ou cadastre um encaixe.</div>`}<p class="small history-note">O valor previsto considera os atendimentos confirmados do período e não representa pagamentos recebidos.</p></section>`;
+  $('#config').onclick = () => { revision++; renderConfig(); };
+  if (adminKey) $('#logout').onclick = async () => {
+    adminKey = ''; try { sessionStorage.removeItem('fadeup-admin'); } catch {}
+    await task(async () => { state.config = await api('config'); chooseView('admin'); });
+  };
+  const navigate = days => { state.agendaDate = shiftDate(state.agendaDate, days); task(renderAdmin); };
+  $('#prev').onclick = () => navigate(state.week ? -7 : -1);
+  $('#following').onclick = () => navigate(state.week ? 7 : 1);
+  $('#today').onclick = () => { state.agendaDate = today(); task(renderAdmin); };
+  $('#agenda-date').onchange = () => { if ($('#agenda-date').reportValidity()) { state.agendaDate = $('#agenda-date').value; task(renderAdmin); } };
+  $('#period').onchange = () => { state.week = $('#period').value === 'week'; task(renderAdmin); };
+  $('#agenda-filter').onchange = () => { state.agendaFilter = $('#agenda-filter').value; task(renderAdmin); };
+  $('#manual').onclick = () => {
+    notice(''); revision++; state.manual = true; state.editing = null; state.step = 1; state.service = null; state.start = null;
+    state.draft = { name: '', phone: '', consent: false };
+    state.date = state.agendaDate >= today() && state.agendaDate <= shiftDate(today(), 90) ? state.agendaDate : today();
+    renderBook(true);
+  };
+  $('#block').onclick = () => { notice(''); revision++; blockForm(); };
+  app.querySelectorAll('[data-admin-cancel]').forEach(button => button.onclick = () => {
+    const booking = records.find(item => item.id === button.dataset.adminCancel);
+    confirmAction(`${booking.kind === 'block' ? 'Liberar intervalo' : 'Cancelar atendimento'} de ${dateLabel(booking.date)} às ${clock(booking.start)}?`, async () => {
+      await api('admin/bookings/' + booking.id, { method: 'DELETE' });
+      await renderAdmin(); notice('Item cancelado e horário liberado.', true);
+    });
+  });
+}
+function blockForm() {
+  const date = state.agendaDate >= today() && state.agendaDate <= shiftDate(today(), 90) ? state.agendaDate : today();
+  app.innerHTML = `<section class="content-panel form-panel"><h2 id="section-title">Bloquear um intervalo</h2><p class="sub">Escolha uma pausa entre os horários livres. O intervalo ficará indisponível para reservas.</p><form id="block-form"><label class="field">Motivo<input name="name" minlength="2" maxlength="80" required placeholder="Ex.: pausa para almoço"></label><div class="form-grid"><label class="field">Data<input type="date" name="date" min="${today()}" max="${shiftDate(today(), 90)}" value="${date}" required></label><label class="field">Duração<select name="duration">${[15, 30, 45, 60, 90, 120].map(value => `<option value="${value}">${value} minutos</option>`).join('')}</select></label></div><label class="field">Início<select name="start" required disabled><option value="">Buscando horários…</option></select><span class="hint" id="block-hint" aria-live="polite"></span></label><button type="button" class="text-button" id="retry-block" hidden>Tentar buscar horários novamente</button><div class="actions"><button type="button" class="secondary" id="back">Voltar à agenda</button><button class="primary" type="submit" disabled>Criar bloqueio</button></div></form></section>`;
+  const form = $('#block-form');
+  let request = 0;
+  async function load() {
+    const current = ++request;
+    form.elements.start.disabled = true;
+    form.querySelector('[type=submit]').disabled = true;
+    form.elements.start.innerHTML = '<option value="">Buscando horários…</option>';
+    $('#retry-block').hidden = true;
+    $('#block-hint').textContent = '';
+    if (!form.elements.date.reportValidity()) return;
+    try {
+      const data = await api(`admin/slots?date=${form.elements.date.value}&duration=${form.elements.duration.value}`);
+      if (!form.isConnected || request !== current) return;
+      form.elements.start.innerHTML = '<option value="">Selecione o início</option>' + data.slots.map(value => `<option value="${value}">${clock(value)}</option>`).join('');
+      form.elements.start.disabled = !data.slots.length;
+      $('#block-hint').textContent = data.slots.length ? 'Apenas horários livres para a duração escolhida.' : 'Sem intervalos livres. Escolha outra data ou duração.';
+    } catch (error) {
+      if (!form.isConnected || request !== current) return;
+      form.elements.start.innerHTML = '<option value="">Horários indisponíveis</option>';
+      $('#block-hint').textContent = error.message;
+      $('#retry-block').hidden = false;
+    }
+  }
+  form.elements.date.onchange = load;
+  form.elements.duration.onchange = load;
+  form.elements.start.onchange = () => { form.querySelector('[type=submit]').disabled = form.elements.start.value === ''; };
+  $('#retry-block').onclick = load;
+  $('#back').onclick = () => task(renderAdmin);
+  form.onsubmit = event => {
+    event.preventDefault();
+    submit(form.querySelector('[type=submit]'), async () => {
+      try {
+        await api('admin/bookings', { method: 'POST', body: JSON.stringify({ kind: 'block', name: form.elements.name.value, date: form.elements.date.value, start: Number(form.elements.start.value), duration: Number(form.elements.duration.value) }) });
+        state.agendaDate = form.elements.date.value;
+        await renderAdmin(); notice('Intervalo bloqueado.', true);
+      } catch (error) { if (error.status === 409) await load(); throw error; }
+    });
+  };
+  load(); focusTitle();
+}
+function renderConfig() {
+  const original = state.config;
+  const services = original.services.map(service => ({ ...service }));
+  app.innerHTML = `<section class="content-panel form-panel"><h2 id="section-title">Configurações da barbearia</h2><p class="sub">As mudanças valem para novas reservas. Atendimentos existentes mantêm serviço, valor e duração.</p><form id="config-form"><label class="field">Nome do negócio<input name="name" value="${esc(original.name)}" minlength="2" maxlength="80" required></label><div class="form-grid"><label class="field">Abre às<input name="open" type="time" step="900" value="${clock(original.open)}" required></label><label class="field">Fecha às<input name="close" type="time" step="900" value="${clock(original.close)}" required></label></div><label class="field">Intervalo entre atendimentos<select name="interval">${[0, 15, 30].map(value => `<option value="${value}" ${original.interval === value ? 'selected' : ''}>${value} minutos</option>`).join('')}</select></label><fieldset><legend>Dias de atendimento</legend><div class="days">${['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].map((label, day) => `<label><input type="checkbox" name="days" value="${day}" ${original.days.includes(day) ? 'checked' : ''}>${label}</label>`).join('')}</div></fieldset><div class="list-heading"><h3>Serviços</h3><button type="button" class="secondary" id="add-service">＋ Adicionar serviço</button></div><p class="small">Preço em reais. Mantenha pelo menos um serviço disponível.</p><div id="services-editor"></div><div class="actions"><button type="button" class="secondary" id="back">Voltar à agenda</button><button type="submit" class="primary">Salvar configurações</button></div></form></section>`;
+  const form = $('#config-form');
+  function renderServices() {
+    $('#services-editor').innerHTML = services.map((service, index) => `<fieldset class="service-editor"><legend>Serviço ${index + 1}</legend><div class="config-service"><label class="field">Nome<input data-field="name" data-index="${index}" value="${esc(service.name)}" minlength="2" maxlength="60" required></label><label class="field">Preço (R$)<input data-field="price" data-index="${index}" type="number" min="0" max="10000" step="0.01" value="${service.price / 100}" required></label><label class="field">Minutos<select data-field="duration" data-index="${index}">${[15, 30, 45, 60, 75, 90, 120].map(value => `<option value="${value}" ${value === service.duration ? 'selected' : ''}>${value}</option>`).join('')}</select></label></div><button type="button" class="text-button danger" data-remove="${index}" ${services.length === 1 ? 'disabled' : ''}>Remover serviço ${index + 1}</button></fieldset>`).join('');
+    $('#add-service').disabled = services.length >= 20;
+    $('#services-editor').querySelectorAll('[data-field]').forEach(input => input.oninput = () => {
+      const field = input.dataset.field;
+      services[Number(input.dataset.index)][field] = field === 'price' ? Math.round(Number(input.value) * 100) : field === 'duration' ? Number(input.value) : input.value;
+    });
+    $('#services-editor').querySelectorAll('[data-remove]').forEach(button => button.onclick = () => { services.splice(Number(button.dataset.remove), 1); renderServices(); $('#add-service').focus(); });
+  }
+  $('#add-service').onclick = () => { services.push({ id: 's-' + crypto.randomUUID().slice(0, 20), name: '', price: 0, duration: 30 }); renderServices(); $('#services-editor').querySelector('fieldset:last-child input').focus(); };
+  $('#back').onclick = () => { notice(''); task(renderAdmin); };
+  form.onsubmit = event => {
+    event.preventDefault();
+    const minute = value => { const [hour, minutes] = value.split(':').map(Number); return hour * 60 + minutes; };
+    const updated = { name: form.elements.name.value.trim(), open: minute(form.elements.open.value), close: minute(form.elements.close.value), interval: Number(form.elements.interval.value), days: [...form.querySelectorAll('[name=days]:checked')].map(input => Number(input.value)), services: services.map(service => ({ ...service, name: service.name.trim() })) };
+    submit(form.querySelector('[type=submit]'), async () => {
+      await api('admin/config', { method: 'PUT', body: JSON.stringify(updated) });
+      state.config = { ...updated, admin: true }; state.service = null;
+      $('#business-name').textContent = updated.name;
+      notice('Configurações salvas. Reservas existentes foram preservadas.', true);
+    });
+  };
+  renderServices(); focusTitle();
+}
 
- const end=state.week?new Date(+new Date(state.agendaDate+'T12:00:00-03:00')+6*86400000).toISOString().slice(0,10):state.agendaDate;
- const data=await api(`admin/agenda?date=${state.agendaDate}&end=${end}`),active=data.records.filter(b=>b.status==='confirmed'&&b.kind==='appointment');
- app.innerHTML=`<h2 id="section-title">Sua agenda, em ordem.</h2><p class="sub">Consulte atendimentos e bloqueios de um dia ou de uma semana.</p><div class="tabs"><button id="agenda">Agenda</button><button id="config">Configurações</button></div><div class="toolbar"><label class="field">Data inicial<input id="agenda-date" type="date" value="${state.agendaDate}"></label><label class="field">Visualização<select id="period"><option value="day">Dia</option><option value="week" ${state.week?'selected':''}>Semana</option></select></label><button class="secondary" id="manual">Novo encaixe</button><button class="secondary" id="block">Bloquear horário</button></div><p class="stat"><strong>${active.length}</strong> atendimento(s) confirmado(s) · valor previsto ${money(active.reduce((n,b)=>n+b.price,0))}</p>`+(data.records.length?data.records.map(b=>`<article class="booking-row"><div><span class="status">${b.status==='confirmed'?(b.kind==='block'?'Bloqueio':'Confirmado'):'Cancelado'}</span><h3>${clock(b.start)} · ${esc(b.name)}</h3><p>${dateLabel(b.date)} · ${esc(b.service)} · ${b.duration} min ${b.phone?'· '+esc(b.phone):''}</p></div>${b.status==='confirmed'?`<button class="secondary danger" data-admin-cancel="${b.id}">Cancelar</button>`:''}</article>`).join(''):'<p class="empty">Agenda livre neste período.</p>')+`<p class="small">O valor previsto não representa pagamentos recebidos. Envio por WhatsApp fora deste MVP.</p>`;
- $('#config').onclick=renderConfig;$('#agenda').onclick=()=>task(renderAdmin);$('#agenda-date').onchange=()=>{state.agendaDate=$('#agenda-date').value;task(renderAdmin);};$('#period').onchange=()=>{state.week=$('#period').value==='week';task(renderAdmin);};$('#manual').onclick=()=>{state.manual=true;state.editing=null;state.step=1;renderBook();};$('#block').onclick=blockForm;app.querySelectorAll('[data-admin-cancel]').forEach(b=>b.onclick=()=>confirmAction('Cancelar este item da agenda?',async()=>{await api('admin/bookings/'+b.dataset.adminCancel,{method:'DELETE'});await renderAdmin();notice('Item cancelado.',true);}));
-}
-function blockForm(){app.innerHTML=`<h2 id="section-title">Reservar um intervalo para você.</h2><form id="block-form"><label class="field">Motivo<input name="name" maxlength="80" required placeholder="Ex.: pausa para almoço"></label><div class="form-grid"><label class="field">Data<input type="date" name="date" min="${today()}" value="${state.agendaDate}" required></label><label class="field">Início<input type="time" step="900" name="time" required></label></div><label class="field">Duração<select name="duration">${[15,30,45,60,90,120].map(n=>`<option value="${n}">${n} minutos</option>`).join('')}</select></label><div class="actions"><button type="button" class="secondary" id="back">Voltar</button><button class="primary" type="submit">Criar bloqueio</button></div></form>`;$('#back').onclick=()=>task(renderAdmin);$('#block-form').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),[h,m]=f.get('time').split(':').map(Number);task(async()=>{await api('admin/bookings',{method:'POST',body:JSON.stringify({kind:'block',name:f.get('name'),date:f.get('date'),start:h*60+m,duration:Number(f.get('duration'))})});await renderAdmin();notice('Intervalo bloqueado.',true);});};}
-function renderConfig(){const c=state.config;app.innerHTML=`<h2 id="section-title">Configurações da barbearia</h2><p class="sub">Alterações valem para novas reservas. Atendimentos existentes mantêm seus dados.</p><form id="config-form"><label class="field">Nome do negócio<input name="name" value="${esc(c.name)}" maxlength="80" required></label><div class="form-grid"><label class="field">Abre às<input name="open" type="time" step="900" value="${clock(c.open)}" required></label><label class="field">Fecha às<input name="close" type="time" step="900" value="${clock(c.close)}" required></label></div><label class="field">Intervalo entre atendimentos<select name="interval">${[0,15,30].map(n=>`<option value="${n}" ${c.interval===n?'selected':''}>${n} minutos</option>`).join('')}</select></label><p class="small">Dias de atendimento</p><div class="days">${['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'].map((d,i)=>`<label><input type="checkbox" name="days" value="${i}" ${c.days.includes(i)?'checked':''}> ${d}</label>`).join('')}</div><h3>Serviços</h3><p class="small">Nome · preço em reais · duração em minutos</p>${c.services.map((s,i)=>`<div class="config-service"><label class="field"><span class="small">Nome</span><input name="service-${i}" value="${esc(s.name)}" required></label><label class="field"><span class="small">Preço</span><input type="number" min="0" step="0.01" name="price-${i}" value="${s.price/100}" required></label><label class="field"><span class="small">Minutos</span><select name="duration-${i}">${[15,30,45,60,75,90,120].map(n=>`<option value="${n}" ${n===s.duration?'selected':''}>${n}</option>`).join('')}</select></label></div>`).join('')}<div class="actions"><button type="button" class="secondary" id="back">Voltar à agenda</button><button type="submit" class="primary">Salvar configurações</button></div></form>`;$('#back').onclick=()=>task(renderAdmin);$('#config-form').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target),minute=n=>{const [h,m]=f.get(n).split(':').map(Number);return h*60+m;};task(async()=>{const updated={name:f.get('name'),open:minute('open'),close:minute('close'),interval:Number(f.get('interval')),days:f.getAll('days').map(Number),services:c.services.map((s,i)=>({...s,name:f.get('service-'+i),price:Math.round(Number(f.get('price-'+i))*100),duration:Number(f.get('duration-'+i))}))};await api('admin/config',{method:'PUT',body:JSON.stringify(updated)});state.config={...updated,admin:true};$('#business-name').textContent=updated.name;notice('Configurações salvas.',true);});};}
 async function init() {
   try {
     state.config = await api('config');
