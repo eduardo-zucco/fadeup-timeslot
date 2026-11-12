@@ -16,3 +16,16 @@ test('validação rejeita dados inválidos e origem externa',async t=>{const {re
 test('batch faz rollback completo quando a chave de ocupação conflita',async t=>{const {db}=setup(t);await db.batch([db.prepare("INSERT INTO bookings VALUES('b','t','n','p','s',0,30,'d',540,'confirmed','appointment','now')"),db.prepare("INSERT INTO occupancy VALUES('d',540,'b')")]);await assert.rejects(db.batch([db.prepare("UPDATE bookings SET start=600 WHERE id='b'"),db.prepare("INSERT INTO occupancy VALUES('d',540,'b')")]));assert.equal(db.raw.prepare("SELECT start FROM bookings WHERE id='b'").get().start,540);});
 test('API rejeita mutação iniciada por outra origem',async t=>{const db=new SQLite();t.after(()=>db.close());const api=createApi({DB:db});const r=await api(new Request('https://example.test/api/bookings',{method:'POST',headers:{Origin:'https://external.test','Content-Type':'application/json'},body:JSON.stringify(body)}));assert.equal(r.status,403);});
 test('chave administrativa protege o painel fora do Sites',async t=>{const db=new SQLite();t.after(()=>db.close());const key='chave-de-teste-com-mais-de-24-caracteres';const api=createApi({DB:db,ADMIN_KEY:key});for(const supplied of ['', 'errada']){const r=await api(new Request('https://app.test/api/admin/agenda?date='+tomorrow,{headers:{'X-Admin-Key':supplied}}));assert.equal(r.status,403);}const r=await api(new Request('https://app.test/api/admin/agenda?date='+tomorrow,{headers:{'X-Admin-Key':key}}));assert.equal(r.status,200);});
+for (const order of ['reagendar-cancelar', 'cancelar-reagendar']) {
+ test(`cancelamento concorrente não deixa ocupação fantasma: ${order}`,async t=>{
+  const {request,db}=setup(t);await ready(request);
+  const b=await (await request('bookings','POST',body)).json();
+  const move=()=>request('bookings/'+b.id,'PATCH',{date:tomorrow,start:600},b.token);
+  const cancel=()=>request('bookings/'+b.id,'DELETE',null,b.token);
+  const results=await Promise.all(order==='reagendar-cancelar'?[move(),cancel()]:[cancel(),move()]);
+  assert(results.every(r=>[200,409].includes(r.status)));
+  assert.equal(db.raw.prepare('SELECT status FROM bookings WHERE id=?').get(b.id).status,'cancelled');
+  assert.equal(db.raw.prepare('SELECT COUNT(*) n FROM occupancy WHERE booking=?').get(b.id).n,0);
+  assert.equal((await request('bookings','POST',{...body,start:600})).status,201);
+ });
+}
