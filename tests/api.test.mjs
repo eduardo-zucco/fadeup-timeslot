@@ -29,3 +29,39 @@ for (const order of ['reagendar-cancelar', 'cancelar-reagendar']) {
   assert.equal((await request('bookings','POST',{...body,start:600})).status,201);
  });
 }
+test('agenda permite consultar passado sem permitir reservar no passado',async t=>{
+ const {request}=setup(t);await ready(request);
+ const yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
+ assert.equal((await request('admin/agenda?date='+yesterday,'GET',null,null,true)).status,200);
+ assert.equal((await request('bookings','POST',{...body,date:yesterday})).status,400);
+ assert.equal((await request('admin/agenda?date=2026-01-01&end=2026-12-31','GET',null,null,true)).status,400);
+});
+test('disponibilidade da reserva preserva a duração original e libera seu próprio horário',async t=>{
+ const {request}=setup(t);await ready(request);
+ const b=await (await request('bookings','POST',body)).json();
+ await request('admin/config','PUT',{name:'Teste',open:540,close:1080,interval:0,days:[0,1,2,3,4,5,6],services:[{id:'corte',name:'Corte novo',price:5000,duration:60}]},null,true);
+ const path='bookings/'+b.id+'/slots?date='+tomorrow;
+ assert.equal((await request(path)).status,404);
+ const slots=await (await request(path,'GET',null,b.token)).json();
+ assert(slots.slots.includes(540));assert(slots.slots.includes(1050));
+ assert.equal((await request('bookings/'+b.id,'PATCH',{date:tomorrow,start:1050},b.token)).status,200);
+ const current=await (await request('bookings/'+b.id,'GET',null,b.token)).json();assert.equal(current.duration,30);assert.equal(current.price,4000);assert.equal(current.service,'Corte');
+});
+test('rotas e períodos de disponibilidade são validados',async t=>{
+ const {request}=setup(t);await ready(request);
+ assert.equal((await request('admin/slots?date='+tomorrow+'&duration=30')).status,403);
+ assert.equal((await request('admin/slots?date='+tomorrow+'&duration=30','GET',null,null,true)).status,200);
+ assert.equal((await request('admin/slots?date='+tomorrow+'&duration=1','GET',null,null,true)).status,400);
+ const b=await (await request('bookings','POST',body)).json();
+ assert.equal((await request('bookings/'+b.id+'/extra','GET',null,b.token)).status,404);
+ await request('bookings/'+b.id,'DELETE',null,b.token);
+ assert.equal((await request('bookings/'+b.id+'/slots?date='+tomorrow,'GET',null,b.token)).status,409);
+});
+test('validação informa campos e diferencia erro interno de dados inválidos',async t=>{
+ const {request}=setup(t);await ready(request);
+ const invalid=await request('bookings','POST',{...body,name:'',phone:'123',consent:false});assert.equal(invalid.status,400);
+ assert.deepEqual(Object.keys((await invalid.json()).fields).sort(),['consent','name','phone']);
+ assert.equal((await request('admin/config','PUT',{name:'Teste',open:540,close:1080,interval:0,days:[1],services:[null]},null,true)).status,400);
+ const api=createApi({DB:{prepare(){throw new Error('test database failure');}}});
+ const failure=await api(new Request('http://test/api/config'));assert.equal(failure.status,500);assert(!(await failure.text()).includes('test database failure'));
+});
