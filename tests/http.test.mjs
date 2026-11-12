@@ -12,11 +12,11 @@ test('servidor público protege painel e completa criar reagendar cancelar e reu
  t.after(async()=>{const exited=once(child,'exit');child.kill();await exited;await unlink(file);await rmdir(dir);});
  const port=await new Promise((resolve,reject)=>{let text='';child.stdout.on('data',c=>{text+=c;const match=text.match(/http:\/\/0\.0\.0\.0:(\d+)/);if(match)resolve(Number(match[1]));});child.on('error',reject);});
  const root='http://127.0.0.1:'+port;
- const spoofed=await (await fetch(root+'/api/config',{headers:{'oai-authenticated-user-email':'local@fadeup.test'}})).json();assert.equal(spoofed.admin,false);
- const authorized=await (await fetch(root+'/api/config',{headers:{'X-Admin-Key':key}})).json();assert.equal(authorized.admin,true);
+ const spoofed=await (await fetch(root+'/api/config',{headers:{'oai-authenticated-user-email':'local@fadeup.test'}})).json();assert.equal(spoofed.admin,undefined);
+ const authorized=await (await fetch(root+'/api/config',{headers:{'X-Admin-Key':key}})).json();assert.equal(authorized.admin,undefined);
  const config={...authorized};delete config.admin;
  const response=await fetch(root+'/api/admin/config',{method:'PUT',headers:{'X-Admin-Key':key,'Content-Type':'application/json','X-Forwarded-Proto':'https','Origin':'https://127.0.0.1:'+port},body:JSON.stringify(config)});assert.equal(response.status,200);
- const helper=await fetch(root+'/ui-utils.js');assert.equal(helper.status,200);assert.match(helper.headers.get('Content-Type'),/javascript/);
+ const helper=await fetch(root+'/assets/js/shared/format.js');assert.equal(helper.status,200);assert.match(helper.headers.get('Content-Type'),/javascript/);
  const date=new Date(Date.now()+86400000).toISOString().slice(0,10);
  const {slots}=await (await fetch(root+'/api/slots?date='+date+'&service=corte')).json();
  // Tomorrow can be a closed day. Search within the next week using the public API.

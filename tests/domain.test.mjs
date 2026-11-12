@@ -1,6 +1,8 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {available,defaults,customer,validConfig,dateOK,cells} from '../lib/domain.mjs';
+import {available,dateOK,cells} from '../src/server/domain/scheduling.mjs';
+import {defaults,validConfig} from '../src/server/domain/config.mjs';
+import {customer} from '../src/server/domain/customer.mjs';
 const now=new Date('2026-11-11T12:00:00-03:00');
 test('serviço termina dentro do expediente',()=>{const s=available('2026-11-12',60,defaults,[],now);assert.equal(s.at(-1),1020);assert(!s.includes(1035));});
 test('colisões consideram toda a duração',()=>{const s=available('2026-11-12',60,defaults,[600,615],now);assert(!s.includes(570));assert(!s.includes(600));assert(s.includes(630));});
