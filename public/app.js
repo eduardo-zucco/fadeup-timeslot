@@ -35,10 +35,15 @@ async function task(fn) { try { await fn(); } catch (error) { notice(error.messa
 async function submit(button, fn) {
   if (submitting) return;
   submitting = true;
-  button.disabled = true;
+  const controls = [...document.querySelectorAll('nav button, #app button, #app input, #app select')].map(control => [control, control.disabled]);
+  controls.forEach(([control]) => { control.disabled = true; });
   button.setAttribute('aria-busy', 'true');
   try { await fn(); } catch (error) { notice(error.message); }
-  finally { submitting = false; if (button.isConnected) { button.disabled = false; button.removeAttribute('aria-busy'); } }
+  finally {
+    submitting = false;
+    controls.forEach(([control, disabled]) => { if (control.isConnected) control.disabled = disabled; });
+    if (button.isConnected) button.removeAttribute('aria-busy');
+  }
 }
 function focusTitle() { const title = $('#section-title'); if (title) { title.tabIndex = -1; title.focus(); } }
 function heading() {

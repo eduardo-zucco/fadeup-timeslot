@@ -25,3 +25,9 @@ Dados iniciais de demonstração: Corte R$40/30min, Barba R$30/30min, Combo R$65
 Cada cliente recebe uma chave secreta de gerenciamento da reserva. Não compartilhe esse link. Não há consulta pública de dados por telefone. Confirmações e lembretes são registrados em fila; o envio externo por WhatsApp fica fora deste MVP.
 
 Equipe: Lucas Castilho (PO), Eduardo Zucco (SM), Felipe Pereira e Fausto Iriu.
+
+## Revisão do MVP em 12/11/2026
+
+Fluxo em quatro etapas com resumo e dados preservados, histórico por situação e painel por dia/semana. Bloqueios usam horários livres; o catálogo pode ser editado sem mudar reservas anteriores. A concorrência entre cancelar e reagendar foi corrigida no banco.
+
+Veja a [auditoria complementar e os prints](docs/auditoria-melhorias-2026-11-12.md). O PDF anterior permanece preservado e a publicação continua adiada. Para executar a mesma verificação da pipeline, use `npm run test:ci`; o relatório JUnit é gerado em `test-results/junit.xml`.
