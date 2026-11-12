@@ -15,3 +15,16 @@ CREATE TABLE IF NOT EXISTS outbox (
  status TEXT NOT NULL DEFAULT 'pending', scheduled TEXT NOT NULL, created TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS bookings_date ON bookings(date,start);
+-- Enforce the invariant inside the transaction, including concurrent requests.
+CREATE TRIGGER IF NOT EXISTS occupancy_requires_confirmed_booking
+BEFORE INSERT ON occupancy
+WHEN NOT EXISTS (SELECT 1 FROM bookings WHERE id=NEW.booking AND status='confirmed')
+BEGIN
+ SELECT RAISE(ABORT, 'booking_not_confirmed');
+END;
+CREATE TRIGGER IF NOT EXISTS cancelled_booking_releases_occupancy
+AFTER UPDATE OF status ON bookings
+WHEN NEW.status <> 'confirmed'
+BEGIN
+ DELETE FROM occupancy WHERE booking=NEW.id;
+END;
