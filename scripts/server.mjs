@@ -24,7 +24,7 @@ const server=createServer(async(req,res)=>{
    const body=['GET','HEAD'].includes(req.method)?undefined:Buffer.concat(buffers);
    result=await api(new Request(url,{method:req.method,headers,body}));
   }else{
-   const files={'/':['index.html','text/html; charset=utf-8'],'/app.js':['app.js','text/javascript; charset=utf-8'],'/style.css':['style.css','text/css; charset=utf-8']};
+   const files={'/':['index.html','text/html; charset=utf-8'],'/app.js':['app.js','text/javascript; charset=utf-8'],'/ui-utils.js':['ui-utils.js','text/javascript; charset=utf-8'],'/style.css':['style.css','text/css; charset=utf-8']};
    const file=files[url.pathname];result=file?new Response(await readFile(new URL('../public/'+file[0],import.meta.url)),{headers:{'Content-Type':file[1]}}):new Response('Não encontrado',{status:404});
   }
   res.writeHead(result.status,Object.fromEntries(result.headers));res.end(Buffer.from(await result.arrayBuffer()));
