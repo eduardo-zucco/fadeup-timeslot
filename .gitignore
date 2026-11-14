@@ -1,11 +1,22 @@
-# Banco local, relatórios e compilações (gerados automaticamente)
-/.local/
-# Dependências, se forem adicionadas no futuro
-/node_modules/
-# Segredos e arquivos da máquina
-.env*
+# Segredos e arquivos de ambiente
+.env
+.env.*
+!.env.example
 *.pem
-.DS_Store
+
+# Python (backend)
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.sqlite
+
+# Node / Vite (frontend)
+node_modules/
+dist/
+.vite/
 npm-debug.log*
+
+# Sistema
+.DS_Store

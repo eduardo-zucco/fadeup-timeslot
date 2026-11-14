@@ -1,63 +1,147 @@
 # fadeUp — TimeSlot
 
-Agendamento para uma unidade e um profissional, com Node.js 24 e SQLite. Sem dependências de execução.
+Agendamento para uma unidade e um profissional. O sistema tem duas partes independentes:
 
-## Onde fica cada coisa
+- **Backend** (`project/backend`): API em Python (FastAPI) com MySQL via SQLAlchemy.
+- **Frontend** (`project/frontend`): aplicação React (TypeScript, Vite, Tailwind e SCSS).
+
+## Estrutura
 
 ```text
 fadeup/
-├── aplicacao/
-│   ├── interface/     # Telas, estilos e JavaScript do navegador
-│   └── servidor/      # API, regras de negócio e acesso ao banco
-├── banco/             # Esquema SQL e histórico de migrações
-├── documentacao/
-│   ├── evidencias/    # Prints, resultados e registros Jira/GitHub
-│   └── entrega/       # PDF final preservado
-├── ferramentas/       # Iniciar, testar, verificar e compilar
-├── testes/            # Testes automatizados
-└── .local/            # Dados e arquivos gerados, fora do Git
+├── project/
+│   ├── backend/       # API Python (FastAPI + SQLAlchemy/MySQL)
+│   └── frontend/      # App React (TypeScript + Vite + Tailwind + SCSS)
+├── banco/             # Esquema SQL e histórico de migrações (referência)
+├── documentacao/      # Relatórios, evidências e contrato da API
+└── ferramentas/       # Utilitários (gerar-relatorio.py)
 ```
 
-Na raiz ficam apenas as configurações que as ferramentas precisam encontrar: pacote npm, Docker, Railway e pipeline em `.github`.
+O cliente usa `/` (Agendar e Meus horários). A administração usa `/admin` e exige uma chave
+privada com pelo menos 24 caracteres.
 
-## Rodar
+## Backend (API Python)
 
-Na pasta `fadeup`, com Node.js 24:
+Requisitos: Python 3.11+ e um MySQL acessível.
 
 ```sh
-npm start
+cd project/backend
+pip install -r requirements.txt
+cp .env.example .env     # preencha as credenciais do MySQL, JWT_SECRET e PASSWORD_PEPPER
+uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-Cliente: http://127.0.0.1:5173/. Administração: http://127.0.0.1:5173/admin.
+Variáveis em `.env`:
 
-O cliente vê apenas Agendar e Meus horários. A administração exige uma chave privada com pelo menos 24 caracteres, inclusive em localhost. Para habilitar o operador no PowerShell:
+- `USER_MYSQL_FADEUP`, `PASS_MYSQL_FADEUP`, `HOST_MYSQL_FADEUP`, `PORT_MYSQL_FADEUP`, `BASE_MYSQL_FADEUP`
+- `JWT_SECRET` — segredo de assinatura dos tokens (HS256).
+- `PASSWORD_PEPPER` — pepper fixo concatenado à senha antes do bcrypt.
+- `ACCESS_TOKEN_MINUTES` (30), `REFRESH_USER_HOURS` (2), `APP_REFRESH_DAYS` (7).
+- `FRONT_ORIGINS` — origens do frontend autorizadas por CORS (separadas por vírgula).
 
-```powershell
-$env:ADMIN_KEY = Read-Host 'Chave administrativa da barbearia (mínimo 24 caracteres)'
-npm start
-```
+### Autenticação
 
-Sem essa variável, o agendamento funciona e as rotas administrativas ficam bloqueadas. Sair remove a chave da sessão do navegador. Não há chave padrão no aplicativo.
+As rotas são protegidas por **JWT em duas camadas** (ver `documentacao/autenticacao.md`):
 
-O banco local fica em `.local/banco/fadeup.sqlite`. O banco que já existia foi preservado nesse caminho. `DB_FILE`, `PORT` e `HOST` podem ser definidos no ambiente. O servidor escuta somente em `127.0.0.1` por padrão.
+- O front se autentica como **aplicação** (`client_id`/`client_secret`) → token de aplicação.
+- O **admin** loga com **email + senha** → token de usuário. Rotas `/api/admin/*` exigem as duas camadas.
 
-## Verificar e compilar
+O admin é inserido **à mão** no banco. Para gerar os valores hasheados:
 
 ```sh
-npm test
-npm run check
-npm run test:ci
-npm run build
+cd project/backend
+python tools/gerar_hash.py senha "minhaSenhaForte"   # hash bcrypt (users.password)
+python tools/gerar_hash.py credencial front-app       # client_id/secret + hash (service_credentials)
 ```
 
-Os comandos continuam iguais. Os relatórios de testes ficam em `.local/relatorios`; o pacote pronto para executar fica em `.local/compilado`. Dentro dele, `npm start` inicia a mesma aplicação Node/SQLite. O build não copia banco real, documentação, caches, testes ou credenciais. A pipeline salva resultados e pacote por 14 dias.
+O esquema das tabelas é versionado por **Alembic** (ver seção Migrations); os modelos ORM estão em
+`project/backend/app/entities/mysql/` (`models.py` e `auth_models.py`).
 
-A preparação alternativa antiga de Cloudflare/Worker foi removida. Docker e Railway continuam preparados para a etapa futura de publicação, que permanece adiada. Nenhum plano foi contratado e nenhum deploy foi realizado.
+Testes do backend:
 
-## Manutenção e entrega
+```sh
+cd project/backend
+pip install -r requirements.txt
+pytest
+```
 
-[Arquitetura e responsabilidades](documentacao/arquitetura.md) · [Organização das pastas](documentacao/organizacao.md) · [PDF final](documentacao/entrega/fadeup-relatorio-final.pdf)
+Os testes usam SQLite assíncrono (aiosqlite) como armazenamento, exercitando o mesmo código de
+repositório SQLAlchemy sem exigir um MySQL em execução.
 
-O PDF foi apenas movido, mantendo os mesmos bytes. Relatórios anteriores e prints estão agrupados em `documentacao`; eles registram versões anteriores e podem mencionar os caminhos antigos. A sessão administrativa e os links secretos de reservas continuam separados. WhatsApp automático permanece fora do MVP.
+## Frontend (React)
 
-Equipe: Lucas Castilho (PO), Eduardo Zucco (SM), Felipe Pereira e Fausto Iriu.
+Requisitos: Node.js 24.
+
+```sh
+cd project/frontend
+cp .env.example .env      # VITE_API_BASE + VITE_APP_CLIENT_ID + VITE_APP_CLIENT_SECRET
+npm install
+npm run dev               # desenvolvimento em http://127.0.0.1:5173
+```
+
+Build de produção:
+
+```sh
+npm run build             # gera dist/
+npm run preview           # serve o build localmente
+```
+
+- Cliente: `/`
+- Administração: `/admin`
+
+A base da API é lida de `VITE_API_BASE` em tempo de build/dev. O frontend é estático: qualquer
+servidor de arquivos (ou `npm run preview`) serve o conteúdo de `dist/`.
+
+## Docker (backend + frontend)
+
+O `docker-compose.yml` sobe dois serviços — `backend` (FastAPI na porta 8000) e `frontend`
+(build do Vite servido por nginx na porta 8080). O **MySQL é externo** (não faz parte do compose):
+aponte para um banco já existente pelas variáveis de ambiente.
+
+```sh
+cp .env.example .env     # ajuste MySQL, JWT_SECRET, PASSWORD_PEPPER, VITE_* e FRONT_ORIGINS
+docker compose up --build
+```
+
+- Cliente: http://localhost:8080
+- API: http://localhost:8000
+
+Variáveis do `.env` (raiz):
+
+- `USER_MYSQL_FADEUP`, `PASS_MYSQL_FADEUP`, `HOST_MYSQL_FADEUP`, `PORT_MYSQL_FADEUP`, `BASE_MYSQL_FADEUP`
+  — conexão com o MySQL externo. Para um MySQL rodando no host, use `HOST_MYSQL_FADEUP=host.docker.internal`.
+- `JWT_SECRET`, `PASSWORD_PEPPER`, `ACCESS_TOKEN_MINUTES`, `REFRESH_USER_HOURS`, `APP_REFRESH_DAYS` — autenticação JWT.
+- `VITE_API_BASE` — URL **pública** da API usada no build do frontend (ex.: `http://localhost:8000`).
+- `VITE_APP_CLIENT_ID`, `VITE_APP_CLIENT_SECRET` — credenciais da aplicação (front), correspondentes a um
+  registro em `service_credentials`.
+- `FRONT_ORIGINS` — origem do frontend autorizada por CORS no backend (ex.: `http://localhost:8080`).
+
+Como o frontend e a API ficam em origens diferentes, o `VITE_API_BASE` é aplicado em **build time**
+(troque-o para o endereço real da API antes de buildar em produção) e o backend libera essa origem
+via CORS (`FRONT_ORIGINS`).
+
+## Migrations (Alembic)
+
+O esquema do banco é versionado com **Alembic** (migrations do SQLAlchemy), em
+`project/backend/migrations`. A migration inicial cria as tabelas `settings`, `bookings`,
+`occupancy` (chave primária composta `date, minute`) e `outbox`.
+
+No Docker, o `entrypoint.sh` do backend executa `alembic upgrade head` automaticamente a cada
+start (aguardando o MySQL ficar disponível) antes de iniciar o uvicorn. Para rodar manualmente:
+
+```sh
+cd project/backend
+alembic upgrade head        # aplica as migrations pendentes
+alembic revision -m "msg"   # cria uma nova migration ao evoluir os modelos
+```
+
+As credenciais vêm das mesmas variáveis `*_MYSQL_FADEUP` do `.env`.
+
+## Contrato da API
+
+As rotas (pública e de operador), modelos e códigos de status estão descritos em
+[`documentacao/api-python.md`](documentacao/api-python.md).
+
+## Equipe
+
+Lucas Castilho (PO), Eduardo Zucco (SM), Felipe Pereira e Fausto Iriu.

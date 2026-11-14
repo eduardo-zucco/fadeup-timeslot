@@ -1,8 +1,0 @@
-.git
-.github
-.local
-node_modules
-documentacao
-testes
-.env*
-*.pem
