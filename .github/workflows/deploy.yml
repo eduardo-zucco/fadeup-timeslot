@@ -1,0 +1,40 @@
+name: Deploy (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch a implantar na VPS"
+        required: true
+        default: "main"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy na VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          # passa os segredos de produção como variáveis de ambiente para o script
+          envs: APP_DIR,DEPLOY_BRANCH,DOMAIN,USER_MYSQL_FADEUP,PASS_MYSQL_FADEUP,HOST_MYSQL_FADEUP,PORT_MYSQL_FADEUP,BASE_MYSQL_FADEUP,JWT_SECRET,PASSWORD_PEPPER,ACCESS_TOKEN_MINUTES,REFRESH_USER_HOURS,APP_REFRESH_DAYS,VITE_APP_CLIENT_ID,VITE_APP_CLIENT_SECRET
+          script: |
+            export APP_DIR="${{ secrets.APP_DIR }}"
+            export DEPLOY_BRANCH="${{ github.event.inputs.branch }}"
+            export DOMAIN="${{ secrets.DOMAIN }}"
+            export USER_MYSQL_FADEUP="${{ secrets.USER_MYSQL_FADEUP }}"
+            export PASS_MYSQL_FADEUP="${{ secrets.PASS_MYSQL_FADEUP }}"
+            export HOST_MYSQL_FADEUP="${{ secrets.HOST_MYSQL_FADEUP }}"
+            export PORT_MYSQL_FADEUP="${{ secrets.PORT_MYSQL_FADEUP }}"
+            export BASE_MYSQL_FADEUP="${{ secrets.BASE_MYSQL_FADEUP }}"
+            export JWT_SECRET="${{ secrets.JWT_SECRET }}"
+            export PASSWORD_PEPPER="${{ secrets.PASSWORD_PEPPER }}"
+            export ACCESS_TOKEN_MINUTES="${{ secrets.ACCESS_TOKEN_MINUTES }}"
+            export REFRESH_USER_HOURS="${{ secrets.REFRESH_USER_HOURS }}"
+            export APP_REFRESH_DAYS="${{ secrets.APP_REFRESH_DAYS }}"
+            export VITE_APP_CLIENT_ID="${{ secrets.VITE_APP_CLIENT_ID }}"
+            export VITE_APP_CLIENT_SECRET="${{ secrets.VITE_APP_CLIENT_SECRET }}"
+            bash "${APP_DIR}/deploy.sh"
