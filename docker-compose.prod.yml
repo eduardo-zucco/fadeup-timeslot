@@ -1,22 +1,4 @@
 services:
-  caddy:
-    image: caddy:2-alpine
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    environment:
-      DOMAIN: ${DOMAIN}
-    depends_on:
-      - backend
-      - frontend
-    networks:
-      - web
-
   backend:
     build:
       context: ./project/backend
@@ -24,6 +6,9 @@ services:
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    ports:
+      # exposto só no localhost da VPS; o nginx do host faz o proxy (/api -> aqui)
+      - "127.0.0.1:8000:8000"
     environment:
       USER_MYSQL_FADEUP: ${USER_MYSQL_FADEUP}
       PASS_MYSQL_FADEUP: ${PASS_MYSQL_FADEUP}
@@ -35,26 +20,20 @@ services:
       ACCESS_TOKEN_MINUTES: ${ACCESS_TOKEN_MINUTES:-30}
       REFRESH_USER_HOURS: ${REFRESH_USER_HOURS:-2}
       APP_REFRESH_DAYS: ${APP_REFRESH_DAYS:-7}
-      # mesma origem (front e API no mesmo domínio via Caddy) -> CORS liberado para o domínio
       FRONT_ORIGINS: ${FRONT_ORIGINS}
-    networks:
-      - web
 
   frontend:
     build:
       context: ./project/frontend
       args:
+        # vazio = caminho relativo (/api); front e API no mesmo domínio via nginx do host
         VITE_API_BASE: ${VITE_API_BASE}
         VITE_APP_CLIENT_ID: ${VITE_APP_CLIENT_ID}
         VITE_APP_CLIENT_SECRET: ${VITE_APP_CLIENT_SECRET}
     image: fadeup-frontend
     restart: unless-stopped
-    networks:
-      - web
-
-networks:
-  web:
-
-volumes:
-  caddy_data:
-  caddy_config:
+    ports:
+      # exposto só no localhost da VPS; o nginx do host faz o proxy (/ -> aqui)
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - backend
