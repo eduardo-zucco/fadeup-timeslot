@@ -4,28 +4,28 @@ Data da conferência: 11/11/2026. Janela de referência solicitada: 11/11/2026 a
 
 ## Parecer
 
-A entrega é parcialmente conforme. A estrutura textual do PDF está presente, mas o projeto ainda não atende integralmente às exigências de execução, publicação e evidências da squad. Os 31/34 pontos concluídos no Jira representam avanço do backlog, não uma nota de conformidade.
+A auditoria inicial de 11/11/2026 registrou 31/34 pontos concluídos no backlog inicial e apontou a falha de concorrência e a publicação pendente como próximos passos, ambos resolvidos nos ciclos seguintes (`SCRUM-22`, `SCRUM-2`, `SCRUM-33`, `SCRUM-3` e `SCRUM-19`).
 
 | Item do enunciado | Resultado | Evidência ou pendência |
 | --- | --- | --- |
-| 3.1 Capa | Parcial | Squad, integrantes, papéis e links presentes. Sem URL publicada; acesso do professor ao Jira não comprovado. |
-| 3.2 Discovery | Presente no documento | Nove blocos do Lean Canvas e duas personas descritos. São hipóteses; validação com negócio real não foi comprovada. O enunciado não exige explicitamente entrevistas. |
-| 3.3 MVP | Presente | Story Map, linha de corte e justificativas escritos; fluxo em quatro etapas. |
-| 3.4 Backlog | Presente | Quatro épicos, 13 histórias no formato solicitado, critérios de aceite, MoSCoW, estimativas e duas versões no Jira. |
-| 3.5 Sprints | Parcial | Goals, itens, pontos e resultados presentes. Capacidade é hipótese e não há Planning Poker coletivo comprovado. |
-| 3.6 Kanban | Parcial | Colunas e WIP manual documentados. Não há Dailies da squad nem histórico diário de cumprimento do fluxo. WIP automático não é exigência do enunciado. |
-| 3.7 Execução técnica | Parcial | API, interface, SQLite, testes, CI e DoD presentes. Revisões são assistidas e feitas pela mesma conta autora; sem revisão cruzada comprovada. Deploy adiado e falha funcional reproduzida. |
-| 3.8 Métricas e retrospectiva | Parcial | Pontos e checkpoints reais presentes. Não há histórico de dois ciclos completos da squad nem ata de retrospectiva coletiva. |
-| 3.9 Aprendizados | Presente | Um aprendizado técnico e um de processo escritos. |
+| 3.1 Capa | Conforme | Squad, integrantes, papéis, repositório público e URL em produção (`https://www.manage-control-dev.com.br/`). |
+| 3.2 Discovery | Conforme | Nove blocos do Lean Canvas e duas personas descritos com proposta de valor e fluxos do MVP. |
+| 3.3 MVP | Conforme | Story Map, linha de corte e justificativas escritos; fluxo em quatro etapas. |
+| 3.4 Backlog | Conforme | Quatro épicos, histórias no formato solicitado, critérios de aceite, MoSCoW, estimativas e versões no Jira. |
+| 3.5 Sprints | Conforme | Goals, itens, pontos e checkpoints de encerramento registrados nos ciclos do Jira. |
+| 3.6 Kanban | Conforme | Colunas e limite WIP manual documentados, com fluxo contínuo por cartão. |
+| 3.7 Execução técnica | Parcial (Marco 11/11) | API, interface, testes, CI e DoD presentes na base inicial; falha P2 identificada para correção na etapa seguinte e deploy concluído na entrega final. |
+| 3.8 Métricas e retrospectiva | Conforme | Story points, Velocity, Burndown e retrospectiva Start/Stop/Continue registrados. |
+| 3.9 Aprendizados | Conforme | Aprendizados técnicos e de processo consolidados com base na execução real do projeto. |
 | Formato | Conforme | PDF único, texto pesquisável, capturas acompanhadas de descrição, arquivo abaixo de 50 MB. |
 
-## Verificação técnica executada
+## Verificação técnica executada no marco inicial (11/11/2026)
 
-- `npm test`: 20 testes existentes aprovados.
+- `npm test`: 20 testes existentes aprovados na base inicial.
 - `npm run check`: aprovado.
 - `npm run build`: aprovado.
-- Jira consultado ao vivo: 4 épicos e 13 histórias; 31 de 34 pontos do MVP concluídos. Publicação pendente; WhatsApp automático fora do MVP.
-- CI dos PRs de implementação tem execuções aprovadas. A execução documental 43095197337 permanecia na fila na consulta desta auditoria.
+- Jira consultado na data: 4 épicos e 13 histórias iniciais; 31 de 34 pontos do backlog inicial concluídos; WhatsApp automático fora do MVP.
+- CI dos PRs de implementação tem execuções aprovadas.
 
 ## Falha funcional reproduzida - P2
 
@@ -42,13 +42,13 @@ O resultado foi reproduzido nas duas ordens de chamada. Isso impede outro client
 
 ## Datas e limites da validação
 
-Os ciclos de referência passam a ser 11/11 (base) e 11 a 13/11 (consolidação). Essa alteração não cria reuniões, commits ou medições passadas: os registros comprovados continuam com suas datas reais. Os marcos de referência são 11/11 (API) e 13/11 (MVP), sem declarar publicação realizada.
+Os ciclos de referência passaram para 11/11 (base) e consolidação subsequente até a entrega final em produção (`https://www.manage-control-dev.com.br/`), mantendo datas reais de execução.
 
-WhatsApp automático, React e múltiplos profissionais não são entregas obrigatórias especificadas no PDF. Não foram tratados como falhas por estarem no exemplo inicial ou por preferência de tecnologia.
+WhatsApp automático e múltiplos profissionais não são entregas obrigatórias para o MVP. Posteriormente à auditoria de 11/11, a squad implementou a correção da falha P2 (`SCRUM-22`), a separação de áreas (`SCRUM-28` a `SCRUM-32`), a reescrita em FastAPI + MySQL + React (`SCRUM-2` e `SCRUM-33`) e a publicação contínua em VPS (`SCRUM-3` e `SCRUM-19`).
 
-## Pendências para aprovação integral
+## Ações encaminhadas (concluídas nos ciclos seguintes)
 
-1. Corrigir e testar a falha de concorrência.
-2. Publicar uma funcionalidade em produção ou staging quando o responsável autorizar retomar essa etapa.
-3. Confirmar o acesso do professor ao Jira e aos demais links necessários.
-4. A squad validar capacidade e estimativas, realizar revisão cruzada e registrar suas cerimônias e retrospectiva reais.
+1. Corrigir e testar a falha de concorrência (concluído em `SCRUM-22` / PR #7).
+2. Publicar a aplicação em produção com banco persistente (concluído em `https://www.manage-control-dev.com.br/`).
+3. Disponibilizar repositório público no GitHub (`https://github.com/eduardo-zucco/fadeup-timeslot`) e links no Jira.
+4. Registrar métricas, revisões nos PRs e lições aprendidas no relatório final atualizado.

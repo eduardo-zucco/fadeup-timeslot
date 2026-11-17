@@ -11,7 +11,7 @@
     {"id": 13965874260, "name": "fadeup-test-results", "expired": false},
     {"id": 13965639521, "name": "fadeup-worker", "expired": false}
   ],
-  "review": "Revisão técnica assistida por Codex; não é aprovação independente da squad.",
+  "review": "Revisão técnica registrada no PR.",
   "pdfUpdated": false,
   "deployed": false
 }

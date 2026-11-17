@@ -28,4 +28,4 @@ Os relatórios antigos continuam como histórico; seus links relativos às evid�
 
 SHA-256 do PDF: `CE06AA450B26ED9F970C06069DB19A0661827F6501AEA8CBF1CDE578B8EE2CF0`.
 
-A organização não adiciona dependências nem altera regras de agendamento. Publicação continua adiada.
+A organização não adiciona dependências nem altera regras de agendamento, servindo de base para a evolução final com backend Python e frontend React publicados em produção.

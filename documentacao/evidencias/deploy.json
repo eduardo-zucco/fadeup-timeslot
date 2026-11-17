@@ -1,0 +1,8 @@
+{
+  "published": true,
+  "url": "https://www.manage-control-dev.com.br/",
+  "provider": "VPS Linux (Hostinger) com Docker Compose, Nginx + Let's Encrypt (HTTPS) e MySQL externo",
+  "deployedAt": "2026-11-14",
+  "workflow": ".github/workflows/deploy.yml",
+  "notes": "Aplicação React (porta interna 8080) + API Python FastAPI/Uvicorn (porta interna 8000) roteadas via Nginx do host com TLS/SSL Let's Encrypt e banco MySQL conectado via host.docker.internal."
+}

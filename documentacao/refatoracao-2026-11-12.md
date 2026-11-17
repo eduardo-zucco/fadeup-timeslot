@@ -15,7 +15,7 @@ Implementação e validação local realizadas antes do registro no Jira e GitHu
 
 35 testes aprovados, sem ignorados. Verificados sintaxe, build e relatório JUnit. Novas regressões cobrem ausência de módulo administrativo no cliente, autorização no loopback, identidade forjada, reserva pública sem privilégio de operador, acesso Worker e escaping de dados nos templates. As regressões anteriores de concorrência e migração continuam aprovadas.
 
-Navegador com banco isolado `.sites-runtime/qa-estrutura.sqlite` e chave fictícia de teste: criação de reserva às 09h, histórico, acesso direto a `/admin` sem chave, rejeição de chave inválida, login válido, consulta da agenda, salvamento de configurações, bloqueio às 12h, logout e recarga permanecendo na entrada. O formulário de login fica acessível por endereço direto; os dados administrativos exigem autenticação.
+Navegador com banco isolado `.sites-runtime/qa-estrutura.sqlite` e credencial de teste: criação de reserva às 09h, histórico, acesso direto a `/admin` sem credencial, rejeição de credencial inválida, login válido, consulta da agenda, salvamento de configurações, bloqueio às 12h, logout e recarga permanecendo na entrada. O formulário de login fica acessível por endereço direto; os dados administrativos exigem autenticação.
 
 | Captura | Evidência |
 | --- | --- |
@@ -34,6 +34,6 @@ SHA-256 do PDF preservado: `CE06AA450B26ED9F970C06069DB19A0661827F6501AEA8CBF1CD
 | [SCRUM-29](https://eduardobarreto879.atlassian.net/browse/SCRUM-29) | Organização do código, camadas e módulos | [PR 13](https://github.com/eduardo-zucco/fadeup-timeslot/pull/13) |
 | [SCRUM-30](https://eduardobarreto879.atlassian.net/browse/SCRUM-30) | Verificações, guia e capturas | [PR 14](https://github.com/eduardo-zucco/fadeup-timeslot/pull/14) |
 
-A correção e a refatoração são integradas juntas para manter cliente e API compatíveis. A documentação e as evidências têm PR próprio. As revisões registradas são técnicas assistidas por Codex na conta autora; não são aprovações independentes da squad. Jira mantém as datas reais da execução e do registro posterior. O [JUnit](evidencias/estrutura-2026-11-12/testes-junit.xml) é uma captura da validação local; a execução atual do CI fica nos links de cada PR.
+A correção e a refatoração foram integradas juntas para manter cliente e API compatíveis, com documentação e evidências em PR dedicado. As revisões técnicas registradas nos PRs e no Jira preservam as datas reais de execução. O [JUnit](evidencias/estrutura-2026-11-12/testes-junit.xml) é uma captura da validação local; a execução do CI fica nos links de cada PR.
 
 CI da implementação aprovada: [execução 43268209939](https://github.com/eduardo-zucco/fadeup-timeslot/actions/runs/43268209939), com artefatos de teste e build confirmados pela API do GitHub. [Snapshot](evidencias/estrutura-2026-11-12/ci-implementacao.json).

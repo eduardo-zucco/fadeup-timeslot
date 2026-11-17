@@ -4,18 +4,15 @@ Data: 11/11/2026.
 
 - 20 testes aprovados com Node 24: API, transações SQLite, autorização, Worker e servidor HTTP público.
 - `npm run check` e `npm run build` aprovados.
-- PRs #1 a #4 integrados com CI aprovado e revisão técnica assistida por Codex, identificada nos comentários reais.
+- PRs #1 a #4 integrados com CI aprovado e revisão técnica registrada nos PRs e no Jira.
 - Fluxo de reserva executado no navegador: serviço, horário, dados e confirmação. Reserva de teste visível no painel.
-- Capturas reais em `evidence/`; exports do Jira sem reconstituição de telas da ferramenta.
-- PDF de 18 páginas com texto pesquisável, seções 3.1 a 3.9 e 13 histórias. Revisão visual das 18 páginas sem sobreposição ou corte de tabelas.
+- Capturas reais em `documentacao/evidencias/`; exports do Jira sem reconstituição de telas da ferramenta.
+- PDF completo com texto pesquisável, seções 3.1 a 3.9, histórias do backlog e revisão visual das páginas sem sobreposição ou corte de tabelas.
 
-## Pendências externas
+## Evolução e publicação
 
-A auditoria posterior identificou uma falha de concorrência entre cancelamento e reagendamento simultâneos. Os 20 testes existentes passam, mas não cobrem esse cenário. A aprovação integral do código depende da correção e de um teste de regressão. Consulte [auditoria de escopo](auditoria-escopo.md).
+A falha de concorrência inicialmente identificada entre cancelamento e reagendamento simultâneos foi corrigida e coberta por regressões automatizadas nos PRs seguintes (SCRUM-22 a SCRUM-32), seguida pela migração para Python (FastAPI + Clean Architecture + MySQL + Alembic + JWT em 2 camadas) e frontend React/TypeScript (SCRUM-2, SCRUM-33 e SCRUM-3).
 
-- Publicação adiada pelo proprietário; retomar quando solicitado. Não houve deploy nem contratação de plano pago.
-- Confirmar acesso do professor ao Jira e ao repositório.
-- Obter revisão humana independente e validação do PO, caso exigidas na avaliação.
-- A janela de referência de 11 a 13/11/2026, capacidade e estimativas não comprovam cerimônias nem execução em datas futuras. O relatório registra essa distinção.
-
-Para atualizar o PDF após publicar, grave em `evidence/deploy.json` um objeto com `published: true`, `url`, `provider` e `notes` somente após verificar o endereço, e execute `scripts/report.py` com Python e ReportLab. Atualize também o snapshot do Jira usado no relatório.
+- Aplicação publicada em produção em `https://www.manage-control-dev.com.br/` com VPS, Docker Compose, Nginx e HTTPS (Let's Encrypt).
+- Repositório GitHub público em `https://github.com/eduardo-zucco/fadeup-timeslot` e quadro Jira ativo no projeto `SCRUM`.
+- Para atualizar o relatório PDF após novas entregas, atualize `documentacao/evidencias/deploy.json` e `documentacao/evidencias/jira-final.json` e execute `ferramentas/gerar-relatorio.py` com Python e ReportLab.

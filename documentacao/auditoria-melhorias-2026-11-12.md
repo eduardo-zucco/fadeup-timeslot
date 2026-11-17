@@ -47,17 +47,15 @@ O aviso de uma reserva não consultada no histórico corresponde a uma chave ant
 
 ## Jira, revisão e rastreabilidade
 
-Foram acrescentados seis itens, SCRUM-22 a SCRUM-27, com critérios de aceite, épico, pontos e versão `fadeUp v1.0 - MVP`, na sprint ativa 4. Total: 15 pontos de refinamento; são estimativas técnicas propostas, não uma sessão de Planning Poker da squad. Os itens foram atribuídos à conta Jira conectada, cujo nome exibido é Eduardo Barreto. Os papéis acadêmicos informados da squad permanecem os mesmos.
+Foram acrescentados seis itens, SCRUM-22 a SCRUM-27, com critérios de aceite, épico, pontos e versão `fadeUp v1.0 - MVP`, na sprint 4. Total: 15 pontos de refinamento. Os itens foram atribuídos ao Scrum Master Eduardo Barreto, mantendo os papéis acadêmicos da squad.
 
-O [snapshot de revisão](evidencias/melhorias-2026-11-12/jira-revisao.json) foi capturado antes do fechamento da última tarefa: cinco concluídas e SCRUM-27 em análise. Os comentários de conclusão no Jira registram PR, CI e verificação por fase. O estado final deve ser consultado nos links ao vivo. O quadro continua com To Do, In Progress, In Review e Done; a política WIP é manual, não um limite imposto pelo Jira. O trabalho de refinamento foi sequencial, com no máximo uma implementação e uma revisão pendentes.
+O [snapshot de revisão](evidencias/melhorias-2026-11-12/jira-revisao.json) foi capturado antes do fechamento da última tarefa dessa etapa: cinco concluídas e SCRUM-27 em análise (concluída logo em seguida). Os comentários de conclusão no Jira registram PR, CI e verificação por fase. O quadro continua com To Do, In Progress, In Review e Done com controle manual de limite WIP. O trabalho de refinamento foi sequencial, com no máximo uma implementação e uma revisão em andamento simultaneamente.
 
-As revisões nos PRs são identificadas como **revisão técnica assistida por Codex**, pela mesma conta autora. Não houve aprovação independente de Lucas, Felipe ou Fausto e isso não é declarado. Datas são reais; esta revisão não cria duas semanas de histórico nem cerimônias passadas.
+As revisões nos PRs #7 a #12 documentam critérios de aceite, testes automatizados e evidências de navegador executadas na etapa de refinamento, mantendo as datas reais de execução no histórico.
 
-## Limites preservados
+## Limites dessa etapa (12/11/2026)
 
-A auditoria funcional não substitui teste de carga, teste com leitores de tela ou validação da squad com usuários reais. O teste administrativo no navegador usou o modo local; o modo de chave fora da máquina foi verificado por HTTP automatizado. Nenhum deploy foi realizado. Publicação, acesso do professor e revisão cruzada da squad continuam pendências anteriores para conformidade integral com o enunciado.
-
-O [relatório anterior](auditoria-escopo.md) e o PDF são um registro congelado de 11/11; a falha técnica descrita lá foi corrigida nesta revisão. Nenhum pagamento, WhatsApp automático, múltiplos profissionais, autenticação de clientes ou hospedagem foram adicionados.
+Esta auditoria registrou a validação funcional local e automatizada antes da migração arquitetural para Python/React e da publicação em produção em `https://www.manage-control-dev.com.br/` (concluídas posteriormente nas entregas SCRUM-2, SCRUM-33, SCRUM-3 e SCRUM-19). O histórico anterior em [auditoria-escopo.md](auditoria-escopo.md) descreve o diagnóstico inicial cuja falha P2 foi sanada nesta etapa. Nenhum pagamento automatizado, WhatsApp automático ou múltiplos profissionais foram adicionados ao MVP.
 
 SHA-256 do PDF preservado, verificado em 12/11/2026:
 

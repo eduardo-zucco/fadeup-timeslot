@@ -1,391 +1,472 @@
 {
-  "capturedAt": "2026-11-11T20:41:29.458Z",
+  "capturedAt": "2026-11-17T20:30:38-03:00",
+  "board": {
+    "id": 1,
+    "name": "SCRUM board",
+    "project": "SCRUM",
+    "url": "https://eduardobarreto879.atlassian.net/jira/software/projects/SCRUM/boards/1"
+  },
+  "sprints": [
+    {
+      "id": 3,
+      "name": "fadeUp - Ciclo 1 - Agendamento",
+      "state": "closed",
+      "startDate": "2026-11-11T12:00:00.000Z",
+      "endDate": "2026-11-18T12:00:00.000Z",
+      "completeDate": "2026-11-11T20:11:46.847Z",
+      "goal": "Disponibilizar catálogo de serviços, cálculo de horários livres, reserva sem conflito, cancelamento e reagendamento."
+    },
+    {
+      "id": 4,
+      "name": "fadeUp - Ciclo 2 - Operação e entrega",
+      "state": "closed",
+      "startDate": "2026-11-11T20:11:45.175Z",
+      "endDate": "2026-11-17T21:00:00.000Z",
+      "completeDate": "2026-11-17T23:30:26.460Z",
+      "goal": "Consolidar a operação administrativa da barbearia, refinamentos de UX, separação de áreas, qualidade e entrega do MVP."
+    },
+    {
+      "id": 2,
+      "name": "fadeUp - Ciclo 3 - Arquitetura e Deploy",
+      "state": "active",
+      "startDate": "2026-11-11T18:35:12.888Z",
+      "endDate": "2026-11-25T18:35:12.888Z",
+      "completeDate": null,
+      "goal": "Migrar backend para Python (FastAPI + Clean Architecture + MySQL + Alembic + JWT 2 camadas), frontend para React + TypeScript, Dockerizar e publicar em produção na VPS."
+    }
+  ],
+  "versions": [
+    {
+      "id": "10000",
+      "name": "fadeUp v0.1 - API",
+      "releaseDate": "2026-11-11",
+      "released": true,
+      "description": "Entrega da API de agendamento, cálculo de disponibilidade, controle transacional de ocupação e gerenciamento de reservas."
+    },
+    {
+      "id": "10001",
+      "name": "fadeUp v1.0 - MVP",
+      "releaseDate": "2026-11-14",
+      "released": true,
+      "description": "Entrega completa do MVP em produção (https://www.manage-control-dev.com.br/) com backend Python/FastAPI/MySQL, frontend React/TypeScript, autenticação JWT em 2 camadas, Docker Compose e CI/CD."
+    }
+  ],
   "items": [
+    {
+      "key": "SCRUM-2",
+      "summary": "US-018 - Migrar a API do fadeUp para Python (FastAPI + SQLAlchemy/MySQL) com Clean Architecture e migrations Alembic",
+      "type": "História",
+      "status": "Concluído",
+      "points": 5,
+      "priority": "High",
+      "assignee": "Lucas Castilho",
+      "parent": "SCRUM-8",
+      "sprint": 2,
+      "created": "2026-11-11T15:35:11.405-0300",
+      "updated": "2026-11-17T20:22:11.564-0300"
+    },
+    {
+      "key": "SCRUM-3",
+      "summary": "US-020 - Configurar pipeline de deploy (GitHub Actions + SSH) e proxy Nginx com HTTPS na VPS",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 3,
+      "priority": null,
+      "assignee": null,
+      "parent": "SCRUM-8",
+      "sprint": 2,
+      "created": "2026-11-11T15:35:11.886-0300",
+      "updated": "2026-11-17T20:22:17.902-0300"
+    },
+    {
+      "key": "SCRUM-4",
+      "summary": "Implementar autenticação JWT em 2 camadas (bcrypt + pepper) e migrations Alembic",
+      "type": "Subtask",
+      "status": "Concluído",
+      "points": null,
+      "priority": null,
+      "assignee": null,
+      "parent": "SCRUM-2",
+      "sprint": 2,
+      "created": "2026-11-11T15:35:12.364-0300",
+      "updated": "2026-11-17T20:23:08.571-0300"
+    },
     {
       "key": "SCRUM-5",
       "summary": "fadeUp E1 - Agendamento do cliente",
+      "type": "Epic",
       "status": "Concluído",
-      "points": 0,
-      "sprint": [],
-      "versions": [],
-      "parent": null
+      "points": null,
+      "priority": "Medium",
+      "assignee": null,
+      "parent": null,
+      "sprint": null,
+      "created": "2026-11-11T15:48:20.142-0300",
+      "updated": "2026-11-11T17:00:43.833-0300"
     },
     {
       "key": "SCRUM-6",
       "summary": "fadeUp E2 - Operação da barbearia",
+      "type": "Epic",
       "status": "Concluído",
-      "points": 0,
-      "sprint": [],
-      "versions": [],
-      "parent": null
+      "points": null,
+      "priority": "Medium",
+      "assignee": null,
+      "parent": null,
+      "sprint": null,
+      "created": "2026-11-11T15:48:22.477-0300",
+      "updated": "2026-11-11T17:00:45.819-0300"
     },
     {
       "key": "SCRUM-7",
       "summary": "fadeUp E3 - Comunicação",
+      "type": "Epic",
       "status": "Em andamento",
-      "points": 0,
-      "sprint": [],
-      "versions": [],
-      "parent": null
+      "points": null,
+      "priority": "Medium",
+      "assignee": null,
+      "parent": null,
+      "sprint": null,
+      "created": "2026-11-11T15:48:24.780-0300",
+      "updated": "2026-11-11T17:00:47.516-0300"
     },
     {
       "key": "SCRUM-8",
       "summary": "fadeUp E4 - Qualidade e entrega",
-      "status": "Em andamento",
-      "points": 0,
-      "sprint": [],
-      "versions": [],
-      "parent": null
+      "type": "Epic",
+      "status": "Concluído",
+      "points": null,
+      "priority": "Medium",
+      "assignee": null,
+      "parent": null,
+      "sprint": null,
+      "created": "2026-11-11T15:48:27.382-0300",
+      "updated": "2026-11-17T20:21:07.936-0300"
     },
     {
       "key": "SCRUM-9",
       "summary": "US-001 - Catálogo de serviços",
+      "type": "História",
       "status": "Concluído",
       "points": 2,
-      "sprint": [
-        {
-          "id": 3,
-          "name": "fadeUp - Ciclo 1 - Agendamento",
-          "state": "closed",
-          "boardId": 1,
-          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
-          "startDate": "2026-11-11T12:00:00.000Z",
-          "endDate": "2026-11-18T12:00:00.000Z",
-          "completeDate": "2026-11-11T20:11:46.847Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10000",
-          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
-          "name": "fadeUp v0.1 - API",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-11"
-        }
-      ],
-      "parent": "SCRUM-5"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-5",
+      "sprint": 3,
+      "created": "2026-11-11T16:18:42.939-0300",
+      "updated": "2026-11-17T20:22:23.451-0300"
     },
     {
       "key": "SCRUM-10",
       "summary": "US-002 - Horários disponíveis",
+      "type": "História",
       "status": "Concluído",
       "points": 3,
-      "sprint": [
-        {
-          "id": 3,
-          "name": "fadeUp - Ciclo 1 - Agendamento",
-          "state": "closed",
-          "boardId": 1,
-          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
-          "startDate": "2026-11-11T12:00:00.000Z",
-          "endDate": "2026-11-18T12:00:00.000Z",
-          "completeDate": "2026-11-11T20:11:46.847Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10000",
-          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
-          "name": "fadeUp v0.1 - API",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-11"
-        }
-      ],
-      "parent": "SCRUM-5"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-5",
+      "sprint": 3,
+      "created": "2026-11-11T16:18:45.669-0300",
+      "updated": "2026-11-17T20:22:26.107-0300"
     },
     {
       "key": "SCRUM-11",
       "summary": "US-003 - Reservar atendimento",
+      "type": "História",
       "status": "Concluído",
       "points": 5,
-      "sprint": [
-        {
-          "id": 3,
-          "name": "fadeUp - Ciclo 1 - Agendamento",
-          "state": "closed",
-          "boardId": 1,
-          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
-          "startDate": "2026-11-11T12:00:00.000Z",
-          "endDate": "2026-11-18T12:00:00.000Z",
-          "completeDate": "2026-11-11T20:11:46.847Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10000",
-          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
-          "name": "fadeUp v0.1 - API",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-11"
-        }
-      ],
-      "parent": "SCRUM-5"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-5",
+      "sprint": 3,
+      "created": "2026-11-11T16:18:48.600-0300",
+      "updated": "2026-11-17T20:22:28.466-0300"
     },
     {
       "key": "SCRUM-12",
       "summary": "US-004 - Cancelar com chave de acesso",
+      "type": "História",
       "status": "Concluído",
       "points": 3,
-      "sprint": [
-        {
-          "id": 3,
-          "name": "fadeUp - Ciclo 1 - Agendamento",
-          "state": "closed",
-          "boardId": 1,
-          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
-          "startDate": "2026-11-11T12:00:00.000Z",
-          "endDate": "2026-11-18T12:00:00.000Z",
-          "completeDate": "2026-11-11T20:11:46.847Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10000",
-          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
-          "name": "fadeUp v0.1 - API",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-11"
-        }
-      ],
-      "parent": "SCRUM-5"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-5",
+      "sprint": 3,
+      "created": "2026-11-11T16:18:51.246-0300",
+      "updated": "2026-11-17T20:22:30.900-0300"
     },
     {
       "key": "SCRUM-13",
       "summary": "US-005 - Reagendar com segurança",
+      "type": "História",
       "status": "Concluído",
       "points": 3,
-      "sprint": [
-        {
-          "id": 3,
-          "name": "fadeUp - Ciclo 1 - Agendamento",
-          "state": "closed",
-          "boardId": 1,
-          "goal": "Base do agendamento. Janela de referência: 11/11/2026. Manter datas reais das evidências.",
-          "startDate": "2026-11-11T12:00:00.000Z",
-          "endDate": "2026-11-18T12:00:00.000Z",
-          "completeDate": "2026-11-11T20:11:46.847Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10000",
-          "description": "API SQLite e agendamento. Marco de referência: 11/11/2026; preservar evidências reais.",
-          "name": "fadeUp v0.1 - API",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-11"
-        }
-      ],
-      "parent": "SCRUM-5"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-5",
+      "sprint": 3,
+      "created": "2026-11-11T16:19:18.259-0300",
+      "updated": "2026-11-17T20:22:33.142-0300"
     },
     {
       "key": "SCRUM-14",
       "summary": "US-006 - Agenda do operador",
+      "type": "História",
       "status": "Concluído",
       "points": 3,
-      "sprint": [
-        {
-          "id": 4,
-          "name": "fadeUp - Ciclo 2 - Operação e entrega",
-          "state": "active",
-          "boardId": 1,
-          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
-          "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-13T21:00:00.000Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10001",
-          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
-          "name": "fadeUp v1.0 - MVP",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-13"
-        }
-      ],
-      "parent": "SCRUM-6"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-6",
+      "sprint": 4,
+      "created": "2026-11-11T16:19:23.173-0300",
+      "updated": "2026-11-17T20:23:11.730-0300"
     },
     {
       "key": "SCRUM-15",
       "summary": "US-007 - Configurar serviços e expediente",
+      "type": "História",
       "status": "Concluído",
       "points": 3,
-      "sprint": [
-        {
-          "id": 4,
-          "name": "fadeUp - Ciclo 2 - Operação e entrega",
-          "state": "active",
-          "boardId": 1,
-          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
-          "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-13T21:00:00.000Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10001",
-          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
-          "name": "fadeUp v1.0 - MVP",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-13"
-        }
-      ],
-      "parent": "SCRUM-6"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-6",
+      "sprint": 4,
+      "created": "2026-11-11T16:19:30.283-0300",
+      "updated": "2026-11-17T20:23:14.550-0300"
     },
     {
       "key": "SCRUM-16",
       "summary": "US-008 - Bloquear horário e inserir encaixe",
+      "type": "História",
       "status": "Concluído",
       "points": 2,
-      "sprint": [
-        {
-          "id": 4,
-          "name": "fadeUp - Ciclo 2 - Operação e entrega",
-          "state": "active",
-          "boardId": 1,
-          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
-          "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-13T21:00:00.000Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10001",
-          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
-          "name": "fadeUp v1.0 - MVP",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-13"
-        }
-      ],
-      "parent": "SCRUM-6"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-6",
+      "sprint": 4,
+      "created": "2026-11-11T16:19:35.026-0300",
+      "updated": "2026-11-17T20:23:17.159-0300"
     },
     {
       "key": "SCRUM-17",
       "summary": "US-009 - Confirmação e histórico",
+      "type": "História",
       "status": "Concluído",
       "points": 2,
-      "sprint": [
-        {
-          "id": 4,
-          "name": "fadeUp - Ciclo 2 - Operação e entrega",
-          "state": "active",
-          "boardId": 1,
-          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
-          "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-13T21:00:00.000Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10001",
-          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
-          "name": "fadeUp v1.0 - MVP",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-13"
-        }
-      ],
-      "parent": "SCRUM-7"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-7",
+      "sprint": 4,
+      "created": "2026-11-11T16:19:37.681-0300",
+      "updated": "2026-11-17T20:23:19.944-0300"
     },
     {
       "key": "SCRUM-18",
       "summary": "US-010 - Qualidade e integração contínua",
+      "type": "História",
       "status": "Concluído",
       "points": 3,
-      "sprint": [
-        {
-          "id": 4,
-          "name": "fadeUp - Ciclo 2 - Operação e entrega",
-          "state": "active",
-          "boardId": 1,
-          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
-          "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-13T21:00:00.000Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10001",
-          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
-          "name": "fadeUp v1.0 - MVP",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-13"
-        }
-      ],
-      "parent": "SCRUM-8"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-11T16:19:40.066-0300",
+      "updated": "2026-11-17T20:23:22.213-0300"
     },
     {
       "key": "SCRUM-19",
       "summary": "US-011 - Publicação do MVP",
-      "status": "Tarefas pendentes",
+      "type": "História",
+      "status": "Concluído",
       "points": 3,
-      "sprint": [
-        {
-          "id": 4,
-          "name": "fadeUp - Ciclo 2 - Operação e entrega",
-          "state": "active",
-          "boardId": 1,
-          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
-          "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-13T21:00:00.000Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10001",
-          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
-          "name": "fadeUp v1.0 - MVP",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-13"
-        }
-      ],
-      "parent": "SCRUM-8"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-11T16:19:42.899-0300",
+      "updated": "2026-11-17T20:28:00.445-0300"
     },
     {
       "key": "SCRUM-20",
       "summary": "US-012 - Relatório final e evidências",
+      "type": "História",
       "status": "Concluído",
       "points": 2,
-      "sprint": [
-        {
-          "id": 4,
-          "name": "fadeUp - Ciclo 2 - Operação e entrega",
-          "state": "active",
-          "boardId": 1,
-          "goal": "Consolidação da operação e documentação até 13/11/2026. Publicação adiada pelo responsável; trabalho futuro não concluído por antecipação.",
-          "startDate": "2026-11-11T20:11:45.175Z",
-          "endDate": "2026-11-13T21:00:00.000Z"
-        }
-      ],
-      "versions": [
-        {
-          "id": "10001",
-          "description": "MVP e documentação. Marco de referência: 13/11/2026. Publicação adiada pelo responsável; não declarada realizada.",
-          "name": "fadeUp v1.0 - MVP",
-          "archived": false,
-          "released": false,
-          "releaseDate": "2026-11-13"
-        }
-      ],
-      "parent": "SCRUM-8"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-11T16:19:45.378-0300",
+      "updated": "2026-11-17T20:28:02.754-0300"
     },
     {
       "key": "SCRUM-21",
       "summary": "US-013 - WhatsApp automático (evolução)",
+      "type": "História",
       "status": "Tarefas pendentes",
       "points": 5,
-      "sprint": [],
-      "versions": [],
-      "parent": "SCRUM-7"
+      "priority": "Medium",
+      "assignee": null,
+      "parent": "SCRUM-7",
+      "sprint": null,
+      "created": "2026-11-11T16:19:47.728-0300",
+      "updated": "2026-11-17T20:23:29.853-0300"
+    },
+    {
+      "key": "SCRUM-22",
+      "summary": "Corrigir concorrência entre cancelar e reagendar",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 3,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-5",
+      "sprint": 4,
+      "created": "2026-11-12T12:22:17.080-0300",
+      "updated": "2026-11-17T20:28:52.754-0300"
+    },
+    {
+      "key": "SCRUM-23",
+      "summary": "Auditar validações da API e agenda histórica",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 2,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-12T12:22:20.085-0300",
+      "updated": "2026-11-17T20:29:25.496-0300"
+    },
+    {
+      "key": "SCRUM-24",
+      "summary": "US-014 - Agendar com resumo e dados preservados",
+      "type": "História",
+      "status": "Concluído",
+      "points": 3,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-5",
+      "sprint": 4,
+      "created": "2026-11-12T12:22:22.423-0300",
+      "updated": "2026-11-17T20:29:27.950-0300"
+    },
+    {
+      "key": "SCRUM-25",
+      "summary": "US-015 - Gerenciar reservas com clareza",
+      "type": "História",
+      "status": "Concluído",
+      "points": 2,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-7",
+      "sprint": 4,
+      "created": "2026-11-12T12:22:25.568-0300",
+      "updated": "2026-11-17T20:29:29.652-0300"
+    },
+    {
+      "key": "SCRUM-26",
+      "summary": "US-016 - Melhorar a operação da agenda",
+      "type": "História",
+      "status": "Concluído",
+      "points": 3,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-6",
+      "sprint": 4,
+      "created": "2026-11-12T12:22:28.180-0300",
+      "updated": "2026-11-17T20:29:32.050-0300"
+    },
+    {
+      "key": "SCRUM-27",
+      "summary": "Concluir auditoria de melhorias e fortalecer CI",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 2,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-12T12:22:30.629-0300",
+      "updated": "2026-11-17T20:29:33.964-0300"
+    },
+    {
+      "key": "SCRUM-28",
+      "summary": "US-017 - Separar cliente e administração autenticada",
+      "type": "História",
+      "status": "Concluído",
+      "points": 3,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-6",
+      "sprint": 4,
+      "created": "2026-11-12T14:18:25.401-0300",
+      "updated": "2026-11-17T20:29:36.050-0300"
+    },
+    {
+      "key": "SCRUM-29",
+      "summary": "Refatorar aplicação em módulos com responsabilidades separadas",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 5,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-12T14:18:33.217-0300",
+      "updated": "2026-11-17T20:29:37.976-0300"
+    },
+    {
+      "key": "SCRUM-30",
+      "summary": "Consolidar regressões documentação e evidências da refatoração",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 2,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-12T14:18:39.567-0300",
+      "updated": "2026-11-17T20:29:40.619-0300"
+    },
+    {
+      "key": "SCRUM-31",
+      "summary": "Agrupar pastas e retirar preparações sem uso da estrutura ativa",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 2,
+      "priority": "Medium",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-12T14:32:20.283-0300",
+      "updated": "2026-11-17T20:29:43.496-0300"
+    },
+    {
+      "key": "SCRUM-32",
+      "summary": "Corrigir erro notice no envio do login administrativo",
+      "type": "Tarefa",
+      "status": "Concluído",
+      "points": 1,
+      "priority": "High",
+      "assignee": "Eduardo Barreto",
+      "parent": "SCRUM-8",
+      "sprint": 4,
+      "created": "2026-11-12T15:37:05.732-0300",
+      "updated": "2026-11-17T20:29:45.578-0300"
+    },
+    {
+      "key": "SCRUM-33",
+      "summary": "US-019 - Migrar o frontend para React e dockerizar (backend + frontend)",
+      "type": "História",
+      "status": "Concluído",
+      "points": 5,
+      "priority": "Medium",
+      "assignee": "Lucas Castilho",
+      "parent": "SCRUM-8",
+      "sprint": 2,
+      "created": "2026-11-14T12:02:43.370-0300",
+      "updated": "2026-11-17T20:22:14.657-0300"
     }
   ]
 }
